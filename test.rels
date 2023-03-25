@@ -1,0 +1,11 @@
+table createEmployeeTable()>>
+  tuple createColumns(>>
+    idColumn is ("Id", number)
+    nameColumn is ("Name", string(100))
+    v is a less 2
+    << [idColumn, nameColumn, ("Surname", string(100))]
+  
+  employees is (createColumns())
+  employees.setPrimaryKey("Id")
+
+  << employees

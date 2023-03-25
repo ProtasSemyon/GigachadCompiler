@@ -1,0 +1,73 @@
+string(20) a is read()
+write(a)
+
+table createEmployeeTable()>>
+    tuple createColumns()>>
+        idColumn is ("Id", number)
+        nameColumn is ("Name", string(100))
+        << [idColumn, nameColumn, ("Surname", string(100))]
+    
+    employees is (createColumns())
+    employees.setPrimaryKey("Id")
+
+    << employees
+
+table createCabinetTable(number countOfCabinets)>>
+    cabinets is ([("Id", number), ("Number", number)])
+    cabinets.setPrimaryKey("Id")
+
+    for(number currentCabinet is 0; currentCabinet less countOfCabinets; currentCabinet is currentCabinet + 1)>>
+        cabinets.addRow([currentCabinet, 100 + currentCabinet])
+
+    << cabinets
+
+
+firstCompanyEmployees is createEmployeeTable()
+secondCompanyEmployees is createEmployeeTable()
+
+if (firstCompanyEmployees equal secondCompanyEmployees)>>
+    write("Ok")
+else>>
+    write("Not Ok")
+
+cabinets is createCabinetTable(10)
+
+secondCompanyEmployees is firstCompanyEmployees
+
+col is ("CabinetId", number)
+
+firstCompanyEmployees.addColumn(("CabinetId", number))
+firstCompanyEmployees.setForeignKey("CabinetId", cabinets, "Id")
+
+firstCompanyEmployees.addRow([1, "Semen", "Protas", 5])
+firstCompanyEmployees.addRow([2, "Saymon", "Protos", 5])
+
+employeesInCabinet is join(firstCompanyEmployees, cabinets, "CabinetId", "Id")
+
+joinedCabinet is employeesInCabinet.getColumnByName("Number")
+
+write(select(employeesInCabinet, ["Surname", joinedCabinet]))
+
+secondCompanyEmployees.addColumn(("Salary", number))
+
+countOfRows is 0
+
+while (countOfRows less secondCompanyEmployees.getRows().size())>>
+    countOfRows is countOfRows + 1
+    secondCompanyEmployees.changeRow(countOfRows - 1, "Salary", countOfRows * 100)
+
+for (rowNum is 0; rowNum less countOfRows; rowNum is rowNum + 1)>>
+    salary is secondCompanyEmployees.getRowColumnData(rowNum, "Salary")
+    switch (salary)>>
+        case 100>>
+            write("1'st salary ")
+            write(salary)
+        case 200>>
+            write("2'nd salary ")
+            write(salary)
+        case 300>>
+            write("3'th salary ")
+            write(salary)
+        default>>
+            write("No salary")
+            write(salary)
