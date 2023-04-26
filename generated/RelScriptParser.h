@@ -14,25 +14,26 @@ public:
   enum {
     INDENT = 1, DEDENT = 2, Assign = 3, Comma = 4, Semi = 5, Quot = 6, Return = 7, 
     BlockStart = 8, Point = 9, LParen = 10, RParen = 11, LCurly = 12, RCurly = 13, 
-    LSquare = 14, RSquare = 15, Const = 16, TableType = 17, ColumnTupe = 18, 
-    RowType = 19, NumberType = 20, TupleType = 21, StringWord = 22, Plus = 23, 
-    Minus = 24, Divide = 25, Multiplication = 26, Less = 27, Equal = 28, 
-    More = 29, LessEqual = 30, MoreEqual = 31, While = 32, For = 33, Switch = 34, 
-    Case = 35, Default = 36, If = 37, Else = 38, Break = 39, ID = 40, IntNumber = 41, 
-    FloatNumber = 42, StringLiteral = 43, UnterminatedStringLiteral = 44, 
-    NEWLINE = 45, WS = 46, BlockComment = 47, LineComment = 48
+    LSquare = 14, RSquare = 15, Const = 16, TableType = 17, ColumnType = 18, 
+    RowType = 19, NumberType = 20, TupleType = 21, StringWord = 22, LogicType = 23, 
+    Plus = 24, Minus = 25, Divide = 26, Multiplication = 27, Less = 28, 
+    Equal = 29, More = 30, LessEqual = 31, MoreEqual = 32, While = 33, For = 34, 
+    Switch = 35, Case = 36, Default = 37, If = 38, Else = 39, Break = 40, 
+    ID = 41, IntNumber = 42, FloatNumber = 43, StringLiteral = 44, UnterminatedStringLiteral = 45, 
+    NEWLINE = 46, WS = 47, BlockComment = 48, LineComment = 49
   };
 
   enum {
     RuleProgram = 0, RuleStatement = 1, RuleMethodUsage = 2, RuleAssignExpression = 3, 
     RuleNumber = 4, RuleAtom = 5, RuleExpression = 6, RuleMulExpression = 7, 
     RuleLogicExpression = 8, RuleBinarySign = 9, RuleInBracesExpression = 10, 
-    RuleInCurlyExpression = 11, RuleInSquareExpression = 12, RuleInParenExpression = 13, 
-    RuleExpressionInsideBraces = 14, RuleFunctionDeclaration = 15, RuleBlock = 16, 
-    RuleReturnExpression = 17, RuleFunctionDeclarationBraces = 18, RuleFunctionDeclarationArgs = 19, 
-    RuleFunctionUsage = 20, RuleType = 21, RuleStringType = 22, RuleWhileStatement = 23, 
-    RuleForStatement = 24, RuleSwitchStatement = 25, RuleCaseStatement = 26, 
-    RuleDefaultStatement = 27, RuleIfStatement = 28
+    RuleColumnConstructor = 11, RuleInCurlyExpression = 12, RuleInSquareExpression = 13, 
+    RuleInParenExpression = 14, RuleExpressionInsideBraces = 15, RuleFunctionDeclaration = 16, 
+    RuleBlock = 17, RuleReturnExpression = 18, RuleFunctionDeclarationBraces = 19, 
+    RuleFunctionDeclarationArgs = 20, RuleFunctionUsage = 21, RuleTypeSpecifier = 22, 
+    RuleStringType = 23, RuleWhileStatement = 24, RuleForStatement = 25, 
+    RuleSwitchStatement = 26, RuleCaseStatement = 27, RuleDefaultStatement = 28, 
+    RuleIfStatement = 29
   };
 
   explicit RelScriptParser(antlr4::TokenStream *input);
@@ -63,6 +64,7 @@ public:
   class LogicExpressionContext;
   class BinarySignContext;
   class InBracesExpressionContext;
+  class ColumnConstructorContext;
   class InCurlyExpressionContext;
   class InSquareExpressionContext;
   class InParenExpressionContext;
@@ -73,7 +75,7 @@ public:
   class FunctionDeclarationBracesContext;
   class FunctionDeclarationArgsContext;
   class FunctionUsageContext;
-  class TypeContext;
+  class TypeSpecifierContext;
   class StringTypeContext;
   class WhileStatementContext;
   class ForStatementContext;
@@ -145,7 +147,7 @@ public:
     antlr4::tree::TerminalNode *Assign();
     ExpressionContext *expression();
     antlr4::tree::TerminalNode *Const();
-    TypeContext *type();
+    TypeSpecifierContext *typeSpecifier();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -197,7 +199,6 @@ public:
     std::vector<antlr4::tree::TerminalNode *> Minus();
     antlr4::tree::TerminalNode* Minus(size_t i);
     LogicExpressionContext *logicExpression();
-    TypeContext *type();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -268,6 +269,7 @@ public:
     InBracesExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     InCurlyExpressionContext *inCurlyExpression();
+    ColumnConstructorContext *columnConstructor();
     InSquareExpressionContext *inSquareExpression();
     InParenExpressionContext *inParenExpression();
 
@@ -277,6 +279,24 @@ public:
   };
 
   InBracesExpressionContext* inBracesExpression();
+
+  class  ColumnConstructorContext : public antlr4::ParserRuleContext {
+  public:
+    ColumnConstructorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *LParen();
+    antlr4::tree::TerminalNode *Comma();
+    TypeSpecifierContext *typeSpecifier();
+    antlr4::tree::TerminalNode *RParen();
+    antlr4::tree::TerminalNode *ID();
+    antlr4::tree::TerminalNode *StringLiteral();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  ColumnConstructorContext* columnConstructor();
 
   class  InCurlyExpressionContext : public antlr4::ParserRuleContext {
   public:
@@ -342,7 +362,7 @@ public:
   public:
     FunctionDeclarationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    TypeContext *type();
+    TypeSpecifierContext *typeSpecifier();
     antlr4::tree::TerminalNode *ID();
     FunctionDeclarationBracesContext *functionDeclarationBraces();
     antlr4::tree::TerminalNode *BlockStart();
@@ -407,7 +427,7 @@ public:
   public:
     FunctionDeclarationArgsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    TypeContext *type();
+    TypeSpecifierContext *typeSpecifier();
     antlr4::tree::TerminalNode *ID();
     antlr4::tree::TerminalNode *Comma();
     FunctionDeclarationArgsContext *functionDeclarationArgs();
@@ -435,23 +455,24 @@ public:
 
   FunctionUsageContext* functionUsage();
 
-  class  TypeContext : public antlr4::ParserRuleContext {
+  class  TypeSpecifierContext : public antlr4::ParserRuleContext {
   public:
-    TypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    TypeSpecifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *TableType();
-    antlr4::tree::TerminalNode *ColumnTupe();
+    antlr4::tree::TerminalNode *ColumnType();
     antlr4::tree::TerminalNode *RowType();
     StringTypeContext *stringType();
     antlr4::tree::TerminalNode *NumberType();
     antlr4::tree::TerminalNode *TupleType();
+    antlr4::tree::TerminalNode *LogicType();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
    
   };
 
-  TypeContext* type();
+  TypeSpecifierContext* typeSpecifier();
 
   class  StringTypeContext : public antlr4::ParserRuleContext {
   public:

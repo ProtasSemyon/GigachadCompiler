@@ -47,6 +47,9 @@ public:
   virtual void enterInBracesExpression(RelScriptParser::InBracesExpressionContext *ctx) = 0;
   virtual void exitInBracesExpression(RelScriptParser::InBracesExpressionContext *ctx) = 0;
 
+  virtual void enterColumnConstructor(RelScriptParser::ColumnConstructorContext *ctx) = 0;
+  virtual void exitColumnConstructor(RelScriptParser::ColumnConstructorContext *ctx) = 0;
+
   virtual void enterInCurlyExpression(RelScriptParser::InCurlyExpressionContext *ctx) = 0;
   virtual void exitInCurlyExpression(RelScriptParser::InCurlyExpressionContext *ctx) = 0;
 
@@ -77,8 +80,8 @@ public:
   virtual void enterFunctionUsage(RelScriptParser::FunctionUsageContext *ctx) = 0;
   virtual void exitFunctionUsage(RelScriptParser::FunctionUsageContext *ctx) = 0;
 
-  virtual void enterType(RelScriptParser::TypeContext *ctx) = 0;
-  virtual void exitType(RelScriptParser::TypeContext *ctx) = 0;
+  virtual void enterTypeSpecifier(RelScriptParser::TypeSpecifierContext *ctx) = 0;
+  virtual void exitTypeSpecifier(RelScriptParser::TypeSpecifierContext *ctx) = 0;
 
   virtual void enterStringType(RelScriptParser::StringTypeContext *ctx) = 0;
   virtual void exitStringType(RelScriptParser::StringTypeContext *ctx) = 0;

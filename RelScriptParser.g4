@@ -20,7 +20,7 @@ methodUsage
   :(ID | functionUsage)(Point functionUsage)+;
 
 assignExpression 
-  : Const? type? ID Assign expression;
+  : Const? typeSpecifier? ID Assign expression;
 
 number : IntNumber | FloatNumber;
 
@@ -34,7 +34,7 @@ atom
   ;
 
 expression
-  : mulExpression (Plus mulExpression | Minus mulExpression)* | logicExpression | type;
+  : mulExpression (Plus mulExpression | Minus mulExpression)* | logicExpression;
 
 mulExpression
   : atom (Multiplication atom | Divide atom)*;
@@ -54,8 +54,12 @@ binarySign
 
 inBracesExpression 
   : inCurlyExpression 
+  | columnConstructor
   | inSquareExpression 
   | inParenExpression;
+
+columnConstructor
+  : LParen (ID | StringLiteral) Comma typeSpecifier RParen;
 
 inCurlyExpression 
   : LCurly expressionInsideBraces RCurly;
@@ -71,7 +75,7 @@ expressionInsideBraces
   | expression Comma expressionInsideBraces;
 
 functionDeclaration
-  : type ID functionDeclarationBraces BlockStart NEWLINE block;
+  : typeSpecifier ID functionDeclarationBraces BlockStart NEWLINE block;
 
 block
   : INDENT statement* returnExpression? DEDENT;
@@ -83,18 +87,19 @@ functionDeclarationBraces
   : LParen functionDeclarationArgs? RParen;
 
 functionDeclarationArgs
-  : type ID | type ID Comma functionDeclarationArgs;
+  : typeSpecifier ID | typeSpecifier ID Comma functionDeclarationArgs;
 
 functionUsage
   : ID (LParen RParen | inParenExpression);
 
-type 
+typeSpecifier 
   : TableType 
-  | ColumnTupe 
+  | ColumnType 
   | RowType 
   | stringType
   | NumberType
-  | TupleType;
+  | TupleType
+  | LogicType;
 
 stringType
   : StringWord LParen IntNumber RParen;

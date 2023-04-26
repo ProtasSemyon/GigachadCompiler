@@ -1,11 +1,25 @@
-table createEmployeeTable()>>
-  tuple createColumns(>>
-    idColumn is ("Id", number)
-    nameColumn is ("Name", string(100))
-    v is a less 2
-    << [idColumn, nameColumn, ("Surname", string(100))]
-  
-  employees is (createColumns())
-  employees.setPrimaryKey("Id")
+const salary is "bruh"
 
-  << employees
+a is 5*a
+t is [("name", int), ("name2", int)]
+b is t * t
+
+/*countOfRows is 5
+for (rowNum is 0; rowNum less countOfRows; rowNum is rowNum + 1)>>
+  salary is secondCompanyEmployees.getRowColumnData(rowNum, "Salary")
+  switch (salary)>>
+      case 100>>
+          write("1'st salary ")
+          salary is ["a", "b"]
+          salary is "bruh"
+          write(salary)
+      case 200>>
+          write("2'nd salary ")
+          write(saalary)
+      case 300>>
+          write("3'th salary ")
+          write(salary)
+      default>>
+          write("No salary")
+          write(salary)
+salary is 225*/

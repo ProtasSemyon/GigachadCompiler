@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
-
 #include "antlr4-runtime.h"
 #include "RelScriptLexer.h"
 #include "RelScriptParser.h"
 #include "RelScriptErrorListener.h"
 #include "RelScriptErrorStrategy.h"
+#include "RelScriptSemanticListener.h"
 
 using namespace antlr4;
 
@@ -27,10 +27,15 @@ int main(int , const char **) {
   // }
 
   RelScriptErrorListener listener;
+  RelScriptSemanticListener parserListener(&listener);
+
   RelScriptParser parser(&tokens);
 
   parser.removeErrorListeners();
   parser.addErrorListener(&listener);
+
+  parser.removeParseListeners();
+  parser.addParseListener(&parserListener);
 
   parser.setErrorHandler(std::make_shared<RelScriptErrorStrategy>());
 

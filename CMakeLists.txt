@@ -9,7 +9,9 @@ file(
   SOURCES
   CONFIGURE_DEPENDS
   "generated/*.h"
-  "generated/*.cpp")
+  "generated/*.cpp"
+  "src/*.h"
+  "src/*.cpp")
 
 add_executable(GigachadCompiler ${SOURCES} main.cpp)
 

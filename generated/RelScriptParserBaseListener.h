@@ -49,6 +49,9 @@ public:
   virtual void enterInBracesExpression(RelScriptParser::InBracesExpressionContext * /*ctx*/) override { }
   virtual void exitInBracesExpression(RelScriptParser::InBracesExpressionContext * /*ctx*/) override { }
 
+  virtual void enterColumnConstructor(RelScriptParser::ColumnConstructorContext * /*ctx*/) override { }
+  virtual void exitColumnConstructor(RelScriptParser::ColumnConstructorContext * /*ctx*/) override { }
+
   virtual void enterInCurlyExpression(RelScriptParser::InCurlyExpressionContext * /*ctx*/) override { }
   virtual void exitInCurlyExpression(RelScriptParser::InCurlyExpressionContext * /*ctx*/) override { }
 
@@ -79,8 +82,8 @@ public:
   virtual void enterFunctionUsage(RelScriptParser::FunctionUsageContext * /*ctx*/) override { }
   virtual void exitFunctionUsage(RelScriptParser::FunctionUsageContext * /*ctx*/) override { }
 
-  virtual void enterType(RelScriptParser::TypeContext * /*ctx*/) override { }
-  virtual void exitType(RelScriptParser::TypeContext * /*ctx*/) override { }
+  virtual void enterTypeSpecifier(RelScriptParser::TypeSpecifierContext * /*ctx*/) override { }
+  virtual void exitTypeSpecifier(RelScriptParser::TypeSpecifierContext * /*ctx*/) override { }
 
   virtual void enterStringType(RelScriptParser::StringTypeContext * /*ctx*/) override { }
   virtual void exitStringType(RelScriptParser::StringTypeContext * /*ctx*/) override { }

@@ -27,13 +27,13 @@ public:
   enum {
     INDENT = 1, DEDENT = 2, Assign = 3, Comma = 4, Semi = 5, Quot = 6, Return = 7, 
     BlockStart = 8, Point = 9, LParen = 10, RParen = 11, LCurly = 12, RCurly = 13, 
-    LSquare = 14, RSquare = 15, Const = 16, TableType = 17, ColumnTupe = 18, 
-    RowType = 19, NumberType = 20, TupleType = 21, StringWord = 22, Plus = 23, 
-    Minus = 24, Divide = 25, Multiplication = 26, Less = 27, Equal = 28, 
-    More = 29, LessEqual = 30, MoreEqual = 31, While = 32, For = 33, Switch = 34, 
-    Case = 35, Default = 36, If = 37, Else = 38, Break = 39, ID = 40, IntNumber = 41, 
-    FloatNumber = 42, StringLiteral = 43, UnterminatedStringLiteral = 44, 
-    NEWLINE = 45, WS = 46, BlockComment = 47, LineComment = 48
+    LSquare = 14, RSquare = 15, Const = 16, TableType = 17, ColumnType = 18, 
+    RowType = 19, NumberType = 20, TupleType = 21, StringWord = 22, LogicType = 23, 
+    Plus = 24, Minus = 25, Divide = 26, Multiplication = 27, Less = 28, 
+    Equal = 29, More = 30, LessEqual = 31, MoreEqual = 32, While = 33, For = 34, 
+    Switch = 35, Case = 36, Default = 37, If = 38, Else = 39, Break = 40, 
+    ID = 41, IntNumber = 42, FloatNumber = 43, StringLiteral = 44, UnterminatedStringLiteral = 45, 
+    NEWLINE = 46, WS = 47, BlockComment = 48, LineComment = 49
   };
 
   explicit RelScriptLexer(antlr4::CharStream *input);
