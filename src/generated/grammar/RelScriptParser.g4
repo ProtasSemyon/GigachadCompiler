@@ -96,13 +96,10 @@ typeSpecifier
   : TableType 
   | ColumnType 
   | RowType 
-  | stringType
+  | StringType
   | NumberType
   | TupleType
   | LogicType;
-
-stringType
-  : StringWord LParen IntNumber RParen;
 
 whileStatement
   : While LParen logicExpression RParen BlockStart NEWLINE block;

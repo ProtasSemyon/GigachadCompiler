@@ -15,7 +15,7 @@ public:
     INDENT = 1, DEDENT = 2, Assign = 3, Comma = 4, Semi = 5, Quot = 6, Return = 7, 
     BlockStart = 8, Point = 9, LParen = 10, RParen = 11, LCurly = 12, RCurly = 13, 
     LSquare = 14, RSquare = 15, Const = 16, TableType = 17, ColumnType = 18, 
-    RowType = 19, NumberType = 20, TupleType = 21, StringWord = 22, LogicType = 23, 
+    RowType = 19, NumberType = 20, TupleType = 21, StringType = 22, LogicType = 23, 
     Plus = 24, Minus = 25, Divide = 26, Multiplication = 27, Less = 28, 
     Equal = 29, More = 30, LessEqual = 31, MoreEqual = 32, While = 33, For = 34, 
     Switch = 35, Case = 36, Default = 37, If = 38, Else = 39, Break = 40, 
@@ -31,9 +31,8 @@ public:
     RuleInParenExpression = 14, RuleExpressionInsideBraces = 15, RuleFunctionDeclaration = 16, 
     RuleBlock = 17, RuleReturnExpression = 18, RuleFunctionDeclarationBraces = 19, 
     RuleFunctionDeclarationArgs = 20, RuleFunctionUsage = 21, RuleTypeSpecifier = 22, 
-    RuleStringType = 23, RuleWhileStatement = 24, RuleForStatement = 25, 
-    RuleSwitchStatement = 26, RuleCaseStatement = 27, RuleDefaultStatement = 28, 
-    RuleIfStatement = 29
+    RuleWhileStatement = 23, RuleForStatement = 24, RuleSwitchStatement = 25, 
+    RuleCaseStatement = 26, RuleDefaultStatement = 27, RuleIfStatement = 28
   };
 
   explicit RelScriptParser(antlr4::TokenStream *input);
@@ -76,7 +75,6 @@ public:
   class FunctionDeclarationArgsContext;
   class FunctionUsageContext;
   class TypeSpecifierContext;
-  class StringTypeContext;
   class WhileStatementContext;
   class ForStatementContext;
   class SwitchStatementContext;
@@ -462,7 +460,7 @@ public:
     antlr4::tree::TerminalNode *TableType();
     antlr4::tree::TerminalNode *ColumnType();
     antlr4::tree::TerminalNode *RowType();
-    StringTypeContext *stringType();
+    antlr4::tree::TerminalNode *StringType();
     antlr4::tree::TerminalNode *NumberType();
     antlr4::tree::TerminalNode *TupleType();
     antlr4::tree::TerminalNode *LogicType();
@@ -473,22 +471,6 @@ public:
   };
 
   TypeSpecifierContext* typeSpecifier();
-
-  class  StringTypeContext : public antlr4::ParserRuleContext {
-  public:
-    StringTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *StringWord();
-    antlr4::tree::TerminalNode *LParen();
-    antlr4::tree::TerminalNode *IntNumber();
-    antlr4::tree::TerminalNode *RParen();
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-   
-  };
-
-  StringTypeContext* stringType();
 
   class  WhileStatementContext : public antlr4::ParserRuleContext {
   public:

@@ -48,9 +48,8 @@ void relscriptparserParserInitialize() {
       "inBracesExpression", "columnConstructor", "inCurlyExpression", "inSquareExpression", 
       "inParenExpression", "expressionInsideBraces", "functionDeclaration", 
       "block", "returnExpression", "functionDeclarationBraces", "functionDeclarationArgs", 
-      "functionUsage", "typeSpecifier", "stringType", "whileStatement", 
-      "forStatement", "switchStatement", "caseStatement", "defaultStatement", 
-      "ifStatement"
+      "functionUsage", "typeSpecifier", "whileStatement", "forStatement", 
+      "switchStatement", "caseStatement", "defaultStatement", "ifStatement"
     },
     std::vector<std::string>{
       "", "", "", "'is'", "','", "';'", "'\"'", "'<<'", "'>>'", "'.'", "'('", 
@@ -64,7 +63,7 @@ void relscriptparserParserInitialize() {
       "", "INDENT", "DEDENT", "Assign", "Comma", "Semi", "Quot", "Return", 
       "BlockStart", "Point", "LParen", "RParen", "LCurly", "RCurly", "LSquare", 
       "RSquare", "Const", "TableType", "ColumnType", "RowType", "NumberType", 
-      "TupleType", "StringWord", "LogicType", "Plus", "Minus", "Divide", 
+      "TupleType", "StringType", "LogicType", "Plus", "Minus", "Divide", 
       "Multiplication", "Less", "Equal", "More", "LessEqual", "MoreEqual", 
       "While", "For", "Switch", "Case", "Default", "If", "Else", "Break", 
       "ID", "IntNumber", "FloatNumber", "StringLiteral", "UnterminatedStringLiteral", 
@@ -72,109 +71,103 @@ void relscriptparserParserInitialize() {
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,49,312,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+  	4,1,49,298,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
   	7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,
   	14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,
   	21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,
-  	28,2,29,7,29,1,0,1,0,5,0,63,8,0,10,0,12,0,66,9,0,1,0,1,0,1,1,1,1,1,1,
-  	1,1,1,1,1,1,1,1,1,1,3,1,78,8,1,1,1,3,1,81,8,1,1,2,1,2,3,2,85,8,2,1,2,
-  	1,2,4,2,89,8,2,11,2,12,2,90,1,3,3,3,94,8,3,1,3,3,3,97,8,3,1,3,1,3,1,3,
-  	1,3,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,5,3,5,111,8,5,1,6,1,6,1,6,1,6,1,6,5,
-  	6,118,8,6,10,6,12,6,121,9,6,1,6,3,6,124,8,6,1,7,1,7,1,7,1,7,1,7,5,7,131,
-  	8,7,10,7,12,7,134,9,7,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,
-  	147,8,8,1,9,1,9,1,10,1,10,1,10,1,10,3,10,155,8,10,1,11,1,11,1,11,1,11,
-  	1,11,1,11,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,14,1,14,1,14,1,14,
-  	1,15,1,15,1,15,1,15,1,15,3,15,180,8,15,1,16,1,16,1,16,1,16,1,16,1,16,
-  	1,16,1,17,1,17,5,17,191,8,17,10,17,12,17,194,9,17,1,17,3,17,197,8,17,
-  	1,17,1,17,1,18,1,18,3,18,203,8,18,1,18,1,18,1,19,1,19,3,19,209,8,19,1,
-  	19,1,19,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,3,20,221,8,20,1,21,1,
-  	21,1,21,1,21,3,21,227,8,21,1,22,1,22,1,22,1,22,1,22,1,22,1,22,3,22,236,
-  	8,22,1,23,1,23,1,23,1,23,1,23,1,24,1,24,1,24,1,24,1,24,1,24,1,24,1,24,
-  	1,25,1,25,1,25,3,25,254,8,25,1,25,1,25,3,25,258,8,25,1,25,1,25,3,25,262,
-  	8,25,1,25,1,25,1,25,1,25,1,25,1,26,1,26,1,26,1,26,1,26,1,26,1,26,1,26,
-  	5,26,277,8,26,10,26,12,26,280,9,26,1,26,1,26,1,26,1,27,1,27,1,27,3,27,
-  	288,8,27,1,27,1,27,1,27,1,27,1,28,1,28,1,28,1,28,1,28,1,29,1,29,1,29,
-  	1,29,1,29,1,29,1,29,1,29,1,29,1,29,1,29,3,29,310,8,29,1,29,0,0,30,0,2,
-  	4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,
-  	52,54,56,58,0,3,1,0,42,43,2,0,24,26,28,32,2,0,41,41,44,44,332,0,64,1,
-  	0,0,0,2,77,1,0,0,0,4,84,1,0,0,0,6,93,1,0,0,0,8,102,1,0,0,0,10,110,1,0,
-  	0,0,12,123,1,0,0,0,14,125,1,0,0,0,16,135,1,0,0,0,18,148,1,0,0,0,20,154,
-  	1,0,0,0,22,156,1,0,0,0,24,162,1,0,0,0,26,166,1,0,0,0,28,170,1,0,0,0,30,
-  	179,1,0,0,0,32,181,1,0,0,0,34,188,1,0,0,0,36,200,1,0,0,0,38,206,1,0,0,
-  	0,40,220,1,0,0,0,42,222,1,0,0,0,44,235,1,0,0,0,46,237,1,0,0,0,48,242,
-  	1,0,0,0,50,250,1,0,0,0,52,268,1,0,0,0,54,284,1,0,0,0,56,293,1,0,0,0,58,
-  	298,1,0,0,0,60,63,5,46,0,0,61,63,3,2,1,0,62,60,1,0,0,0,62,61,1,0,0,0,
-  	63,66,1,0,0,0,64,62,1,0,0,0,64,65,1,0,0,0,65,67,1,0,0,0,66,64,1,0,0,0,
-  	67,68,5,0,0,1,68,1,1,0,0,0,69,78,3,6,3,0,70,78,3,32,16,0,71,78,3,42,21,
-  	0,72,78,3,4,2,0,73,78,3,48,24,0,74,78,3,50,25,0,75,78,3,52,26,0,76,78,
-  	3,58,29,0,77,69,1,0,0,0,77,70,1,0,0,0,77,71,1,0,0,0,77,72,1,0,0,0,77,
-  	73,1,0,0,0,77,74,1,0,0,0,77,75,1,0,0,0,77,76,1,0,0,0,78,80,1,0,0,0,79,
-  	81,5,46,0,0,80,79,1,0,0,0,80,81,1,0,0,0,81,3,1,0,0,0,82,85,5,41,0,0,83,
-  	85,3,42,21,0,84,82,1,0,0,0,84,83,1,0,0,0,85,88,1,0,0,0,86,87,5,9,0,0,
-  	87,89,3,42,21,0,88,86,1,0,0,0,89,90,1,0,0,0,90,88,1,0,0,0,90,91,1,0,0,
-  	0,91,5,1,0,0,0,92,94,5,16,0,0,93,92,1,0,0,0,93,94,1,0,0,0,94,96,1,0,0,
-  	0,95,97,3,44,22,0,96,95,1,0,0,0,96,97,1,0,0,0,97,98,1,0,0,0,98,99,5,41,
-  	0,0,99,100,5,3,0,0,100,101,3,12,6,0,101,7,1,0,0,0,102,103,7,0,0,0,103,
-  	9,1,0,0,0,104,111,5,41,0,0,105,111,3,8,4,0,106,111,5,44,0,0,107,111,3,
-  	42,21,0,108,111,3,4,2,0,109,111,3,20,10,0,110,104,1,0,0,0,110,105,1,0,
-  	0,0,110,106,1,0,0,0,110,107,1,0,0,0,110,108,1,0,0,0,110,109,1,0,0,0,111,
-  	11,1,0,0,0,112,119,3,14,7,0,113,114,5,24,0,0,114,118,3,14,7,0,115,116,
-  	5,25,0,0,116,118,3,14,7,0,117,113,1,0,0,0,117,115,1,0,0,0,118,121,1,0,
-  	0,0,119,117,1,0,0,0,119,120,1,0,0,0,120,124,1,0,0,0,121,119,1,0,0,0,122,
-  	124,3,16,8,0,123,112,1,0,0,0,123,122,1,0,0,0,124,13,1,0,0,0,125,132,3,
-  	10,5,0,126,127,5,27,0,0,127,131,3,10,5,0,128,129,5,26,0,0,129,131,3,10,
-  	5,0,130,126,1,0,0,0,130,128,1,0,0,0,131,134,1,0,0,0,132,130,1,0,0,0,132,
-  	133,1,0,0,0,133,15,1,0,0,0,134,132,1,0,0,0,135,146,3,10,5,0,136,137,5,
-  	29,0,0,137,147,3,10,5,0,138,139,5,30,0,0,139,147,3,10,5,0,140,141,5,28,
-  	0,0,141,147,3,10,5,0,142,143,5,32,0,0,143,147,3,10,5,0,144,145,5,31,0,
-  	0,145,147,3,10,5,0,146,136,1,0,0,0,146,138,1,0,0,0,146,140,1,0,0,0,146,
-  	142,1,0,0,0,146,144,1,0,0,0,146,147,1,0,0,0,147,17,1,0,0,0,148,149,7,
-  	1,0,0,149,19,1,0,0,0,150,155,3,24,12,0,151,155,3,22,11,0,152,155,3,26,
-  	13,0,153,155,3,28,14,0,154,150,1,0,0,0,154,151,1,0,0,0,154,152,1,0,0,
-  	0,154,153,1,0,0,0,155,21,1,0,0,0,156,157,5,10,0,0,157,158,7,2,0,0,158,
-  	159,5,4,0,0,159,160,3,44,22,0,160,161,5,11,0,0,161,23,1,0,0,0,162,163,
-  	5,12,0,0,163,164,3,30,15,0,164,165,5,13,0,0,165,25,1,0,0,0,166,167,5,
-  	14,0,0,167,168,3,30,15,0,168,169,5,15,0,0,169,27,1,0,0,0,170,171,5,10,
-  	0,0,171,172,3,30,15,0,172,173,5,11,0,0,173,29,1,0,0,0,174,180,3,12,6,
-  	0,175,176,3,12,6,0,176,177,5,4,0,0,177,178,3,30,15,0,178,180,1,0,0,0,
-  	179,174,1,0,0,0,179,175,1,0,0,0,180,31,1,0,0,0,181,182,3,44,22,0,182,
-  	183,5,41,0,0,183,184,3,38,19,0,184,185,5,8,0,0,185,186,5,46,0,0,186,187,
-  	3,34,17,0,187,33,1,0,0,0,188,192,5,1,0,0,189,191,3,2,1,0,190,189,1,0,
-  	0,0,191,194,1,0,0,0,192,190,1,0,0,0,192,193,1,0,0,0,193,196,1,0,0,0,194,
-  	192,1,0,0,0,195,197,3,36,18,0,196,195,1,0,0,0,196,197,1,0,0,0,197,198,
-  	1,0,0,0,198,199,5,2,0,0,199,35,1,0,0,0,200,202,5,7,0,0,201,203,3,12,6,
-  	0,202,201,1,0,0,0,202,203,1,0,0,0,203,204,1,0,0,0,204,205,5,46,0,0,205,
-  	37,1,0,0,0,206,208,5,10,0,0,207,209,3,40,20,0,208,207,1,0,0,0,208,209,
-  	1,0,0,0,209,210,1,0,0,0,210,211,5,11,0,0,211,39,1,0,0,0,212,213,3,44,
-  	22,0,213,214,5,41,0,0,214,221,1,0,0,0,215,216,3,44,22,0,216,217,5,41,
-  	0,0,217,218,5,4,0,0,218,219,3,40,20,0,219,221,1,0,0,0,220,212,1,0,0,0,
-  	220,215,1,0,0,0,221,41,1,0,0,0,222,226,5,41,0,0,223,224,5,10,0,0,224,
-  	227,5,11,0,0,225,227,3,28,14,0,226,223,1,0,0,0,226,225,1,0,0,0,227,43,
-  	1,0,0,0,228,236,5,17,0,0,229,236,5,18,0,0,230,236,5,19,0,0,231,236,3,
-  	46,23,0,232,236,5,20,0,0,233,236,5,21,0,0,234,236,5,23,0,0,235,228,1,
-  	0,0,0,235,229,1,0,0,0,235,230,1,0,0,0,235,231,1,0,0,0,235,232,1,0,0,0,
-  	235,233,1,0,0,0,235,234,1,0,0,0,236,45,1,0,0,0,237,238,5,22,0,0,238,239,
-  	5,10,0,0,239,240,5,42,0,0,240,241,5,11,0,0,241,47,1,0,0,0,242,243,5,33,
-  	0,0,243,244,5,10,0,0,244,245,3,16,8,0,245,246,5,11,0,0,246,247,5,8,0,
-  	0,247,248,5,46,0,0,248,249,3,34,17,0,249,49,1,0,0,0,250,251,5,34,0,0,
-  	251,253,5,10,0,0,252,254,3,6,3,0,253,252,1,0,0,0,253,254,1,0,0,0,254,
-  	255,1,0,0,0,255,257,5,5,0,0,256,258,3,16,8,0,257,256,1,0,0,0,257,258,
-  	1,0,0,0,258,259,1,0,0,0,259,261,5,5,0,0,260,262,3,6,3,0,261,260,1,0,0,
-  	0,261,262,1,0,0,0,262,263,1,0,0,0,263,264,5,11,0,0,264,265,5,8,0,0,265,
-  	266,5,46,0,0,266,267,3,34,17,0,267,51,1,0,0,0,268,269,5,35,0,0,269,270,
-  	5,10,0,0,270,271,5,41,0,0,271,272,5,11,0,0,272,273,5,8,0,0,273,274,5,
-  	46,0,0,274,278,5,1,0,0,275,277,3,54,27,0,276,275,1,0,0,0,277,280,1,0,
-  	0,0,278,276,1,0,0,0,278,279,1,0,0,0,279,281,1,0,0,0,280,278,1,0,0,0,281,
-  	282,3,56,28,0,282,283,5,2,0,0,283,53,1,0,0,0,284,287,5,36,0,0,285,288,
-  	5,44,0,0,286,288,3,8,4,0,287,285,1,0,0,0,287,286,1,0,0,0,288,289,1,0,
-  	0,0,289,290,5,8,0,0,290,291,5,46,0,0,291,292,3,34,17,0,292,55,1,0,0,0,
-  	293,294,5,37,0,0,294,295,5,8,0,0,295,296,5,46,0,0,296,297,3,34,17,0,297,
-  	57,1,0,0,0,298,299,5,38,0,0,299,300,5,10,0,0,300,301,3,16,8,0,301,302,
-  	5,11,0,0,302,303,5,8,0,0,303,304,5,46,0,0,304,309,3,34,17,0,305,306,5,
-  	39,0,0,306,307,5,8,0,0,307,308,5,46,0,0,308,310,3,34,17,0,309,305,1,0,
-  	0,0,309,310,1,0,0,0,310,59,1,0,0,0,30,62,64,77,80,84,90,93,96,110,117,
-  	119,123,130,132,146,154,179,192,196,202,208,220,226,235,253,257,261,278,
-  	287,309
+  	28,1,0,1,0,5,0,61,8,0,10,0,12,0,64,9,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,
+  	1,1,1,1,1,3,1,76,8,1,1,1,3,1,79,8,1,1,2,1,2,3,2,83,8,2,1,2,1,2,4,2,87,
+  	8,2,11,2,12,2,88,1,3,3,3,92,8,3,1,3,3,3,95,8,3,1,3,1,3,1,3,1,3,1,4,1,
+  	4,1,5,1,5,1,5,1,5,1,5,1,5,3,5,109,8,5,1,6,1,6,1,6,1,6,1,6,5,6,116,8,6,
+  	10,6,12,6,119,9,6,1,6,3,6,122,8,6,1,7,1,7,1,7,1,7,1,7,5,7,129,8,7,10,
+  	7,12,7,132,9,7,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,145,8,
+  	8,1,9,1,9,1,10,1,10,1,10,1,10,3,10,153,8,10,1,11,1,11,1,11,1,11,1,11,
+  	1,11,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,14,1,14,1,14,1,14,1,15,
+  	1,15,1,15,1,15,1,15,3,15,178,8,15,1,16,1,16,1,16,1,16,1,16,1,16,1,16,
+  	1,17,1,17,5,17,189,8,17,10,17,12,17,192,9,17,1,17,3,17,195,8,17,1,17,
+  	1,17,1,18,1,18,3,18,201,8,18,1,18,1,18,1,19,1,19,3,19,207,8,19,1,19,1,
+  	19,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,3,20,219,8,20,1,21,1,21,1,
+  	21,1,21,3,21,225,8,21,1,22,1,22,1,23,1,23,1,23,1,23,1,23,1,23,1,23,1,
+  	23,1,24,1,24,1,24,3,24,240,8,24,1,24,1,24,3,24,244,8,24,1,24,1,24,3,24,
+  	248,8,24,1,24,1,24,1,24,1,24,1,24,1,25,1,25,1,25,1,25,1,25,1,25,1,25,
+  	1,25,5,25,263,8,25,10,25,12,25,266,9,25,1,25,1,25,1,25,1,26,1,26,1,26,
+  	3,26,274,8,26,1,26,1,26,1,26,1,26,1,27,1,27,1,27,1,27,1,27,1,28,1,28,
+  	1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,3,28,296,8,28,1,28,0,0,29,
+  	0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,
+  	50,52,54,56,0,4,1,0,42,43,2,0,24,26,28,32,2,0,41,41,44,44,1,0,17,23,313,
+  	0,62,1,0,0,0,2,75,1,0,0,0,4,82,1,0,0,0,6,91,1,0,0,0,8,100,1,0,0,0,10,
+  	108,1,0,0,0,12,121,1,0,0,0,14,123,1,0,0,0,16,133,1,0,0,0,18,146,1,0,0,
+  	0,20,152,1,0,0,0,22,154,1,0,0,0,24,160,1,0,0,0,26,164,1,0,0,0,28,168,
+  	1,0,0,0,30,177,1,0,0,0,32,179,1,0,0,0,34,186,1,0,0,0,36,198,1,0,0,0,38,
+  	204,1,0,0,0,40,218,1,0,0,0,42,220,1,0,0,0,44,226,1,0,0,0,46,228,1,0,0,
+  	0,48,236,1,0,0,0,50,254,1,0,0,0,52,270,1,0,0,0,54,279,1,0,0,0,56,284,
+  	1,0,0,0,58,61,5,46,0,0,59,61,3,2,1,0,60,58,1,0,0,0,60,59,1,0,0,0,61,64,
+  	1,0,0,0,62,60,1,0,0,0,62,63,1,0,0,0,63,65,1,0,0,0,64,62,1,0,0,0,65,66,
+  	5,0,0,1,66,1,1,0,0,0,67,76,3,6,3,0,68,76,3,32,16,0,69,76,3,42,21,0,70,
+  	76,3,4,2,0,71,76,3,46,23,0,72,76,3,48,24,0,73,76,3,50,25,0,74,76,3,56,
+  	28,0,75,67,1,0,0,0,75,68,1,0,0,0,75,69,1,0,0,0,75,70,1,0,0,0,75,71,1,
+  	0,0,0,75,72,1,0,0,0,75,73,1,0,0,0,75,74,1,0,0,0,76,78,1,0,0,0,77,79,5,
+  	46,0,0,78,77,1,0,0,0,78,79,1,0,0,0,79,3,1,0,0,0,80,83,5,41,0,0,81,83,
+  	3,42,21,0,82,80,1,0,0,0,82,81,1,0,0,0,83,86,1,0,0,0,84,85,5,9,0,0,85,
+  	87,3,42,21,0,86,84,1,0,0,0,87,88,1,0,0,0,88,86,1,0,0,0,88,89,1,0,0,0,
+  	89,5,1,0,0,0,90,92,5,16,0,0,91,90,1,0,0,0,91,92,1,0,0,0,92,94,1,0,0,0,
+  	93,95,3,44,22,0,94,93,1,0,0,0,94,95,1,0,0,0,95,96,1,0,0,0,96,97,5,41,
+  	0,0,97,98,5,3,0,0,98,99,3,12,6,0,99,7,1,0,0,0,100,101,7,0,0,0,101,9,1,
+  	0,0,0,102,109,5,41,0,0,103,109,3,8,4,0,104,109,5,44,0,0,105,109,3,42,
+  	21,0,106,109,3,4,2,0,107,109,3,20,10,0,108,102,1,0,0,0,108,103,1,0,0,
+  	0,108,104,1,0,0,0,108,105,1,0,0,0,108,106,1,0,0,0,108,107,1,0,0,0,109,
+  	11,1,0,0,0,110,117,3,14,7,0,111,112,5,24,0,0,112,116,3,14,7,0,113,114,
+  	5,25,0,0,114,116,3,14,7,0,115,111,1,0,0,0,115,113,1,0,0,0,116,119,1,0,
+  	0,0,117,115,1,0,0,0,117,118,1,0,0,0,118,122,1,0,0,0,119,117,1,0,0,0,120,
+  	122,3,16,8,0,121,110,1,0,0,0,121,120,1,0,0,0,122,13,1,0,0,0,123,130,3,
+  	10,5,0,124,125,5,27,0,0,125,129,3,10,5,0,126,127,5,26,0,0,127,129,3,10,
+  	5,0,128,124,1,0,0,0,128,126,1,0,0,0,129,132,1,0,0,0,130,128,1,0,0,0,130,
+  	131,1,0,0,0,131,15,1,0,0,0,132,130,1,0,0,0,133,144,3,10,5,0,134,135,5,
+  	29,0,0,135,145,3,10,5,0,136,137,5,30,0,0,137,145,3,10,5,0,138,139,5,28,
+  	0,0,139,145,3,10,5,0,140,141,5,32,0,0,141,145,3,10,5,0,142,143,5,31,0,
+  	0,143,145,3,10,5,0,144,134,1,0,0,0,144,136,1,0,0,0,144,138,1,0,0,0,144,
+  	140,1,0,0,0,144,142,1,0,0,0,144,145,1,0,0,0,145,17,1,0,0,0,146,147,7,
+  	1,0,0,147,19,1,0,0,0,148,153,3,24,12,0,149,153,3,22,11,0,150,153,3,26,
+  	13,0,151,153,3,28,14,0,152,148,1,0,0,0,152,149,1,0,0,0,152,150,1,0,0,
+  	0,152,151,1,0,0,0,153,21,1,0,0,0,154,155,5,10,0,0,155,156,7,2,0,0,156,
+  	157,5,4,0,0,157,158,3,44,22,0,158,159,5,11,0,0,159,23,1,0,0,0,160,161,
+  	5,12,0,0,161,162,3,30,15,0,162,163,5,13,0,0,163,25,1,0,0,0,164,165,5,
+  	14,0,0,165,166,3,30,15,0,166,167,5,15,0,0,167,27,1,0,0,0,168,169,5,10,
+  	0,0,169,170,3,30,15,0,170,171,5,11,0,0,171,29,1,0,0,0,172,178,3,12,6,
+  	0,173,174,3,12,6,0,174,175,5,4,0,0,175,176,3,30,15,0,176,178,1,0,0,0,
+  	177,172,1,0,0,0,177,173,1,0,0,0,178,31,1,0,0,0,179,180,3,44,22,0,180,
+  	181,5,41,0,0,181,182,3,38,19,0,182,183,5,8,0,0,183,184,5,46,0,0,184,185,
+  	3,34,17,0,185,33,1,0,0,0,186,190,5,1,0,0,187,189,3,2,1,0,188,187,1,0,
+  	0,0,189,192,1,0,0,0,190,188,1,0,0,0,190,191,1,0,0,0,191,194,1,0,0,0,192,
+  	190,1,0,0,0,193,195,3,36,18,0,194,193,1,0,0,0,194,195,1,0,0,0,195,196,
+  	1,0,0,0,196,197,5,2,0,0,197,35,1,0,0,0,198,200,5,7,0,0,199,201,3,12,6,
+  	0,200,199,1,0,0,0,200,201,1,0,0,0,201,202,1,0,0,0,202,203,5,46,0,0,203,
+  	37,1,0,0,0,204,206,5,10,0,0,205,207,3,40,20,0,206,205,1,0,0,0,206,207,
+  	1,0,0,0,207,208,1,0,0,0,208,209,5,11,0,0,209,39,1,0,0,0,210,211,3,44,
+  	22,0,211,212,5,41,0,0,212,219,1,0,0,0,213,214,3,44,22,0,214,215,5,41,
+  	0,0,215,216,5,4,0,0,216,217,3,40,20,0,217,219,1,0,0,0,218,210,1,0,0,0,
+  	218,213,1,0,0,0,219,41,1,0,0,0,220,224,5,41,0,0,221,222,5,10,0,0,222,
+  	225,5,11,0,0,223,225,3,28,14,0,224,221,1,0,0,0,224,223,1,0,0,0,225,43,
+  	1,0,0,0,226,227,7,3,0,0,227,45,1,0,0,0,228,229,5,33,0,0,229,230,5,10,
+  	0,0,230,231,3,16,8,0,231,232,5,11,0,0,232,233,5,8,0,0,233,234,5,46,0,
+  	0,234,235,3,34,17,0,235,47,1,0,0,0,236,237,5,34,0,0,237,239,5,10,0,0,
+  	238,240,3,6,3,0,239,238,1,0,0,0,239,240,1,0,0,0,240,241,1,0,0,0,241,243,
+  	5,5,0,0,242,244,3,16,8,0,243,242,1,0,0,0,243,244,1,0,0,0,244,245,1,0,
+  	0,0,245,247,5,5,0,0,246,248,3,6,3,0,247,246,1,0,0,0,247,248,1,0,0,0,248,
+  	249,1,0,0,0,249,250,5,11,0,0,250,251,5,8,0,0,251,252,5,46,0,0,252,253,
+  	3,34,17,0,253,49,1,0,0,0,254,255,5,35,0,0,255,256,5,10,0,0,256,257,5,
+  	41,0,0,257,258,5,11,0,0,258,259,5,8,0,0,259,260,5,46,0,0,260,264,5,1,
+  	0,0,261,263,3,52,26,0,262,261,1,0,0,0,263,266,1,0,0,0,264,262,1,0,0,0,
+  	264,265,1,0,0,0,265,267,1,0,0,0,266,264,1,0,0,0,267,268,3,54,27,0,268,
+  	269,5,2,0,0,269,51,1,0,0,0,270,273,5,36,0,0,271,274,5,44,0,0,272,274,
+  	3,8,4,0,273,271,1,0,0,0,273,272,1,0,0,0,274,275,1,0,0,0,275,276,5,8,0,
+  	0,276,277,5,46,0,0,277,278,3,34,17,0,278,53,1,0,0,0,279,280,5,37,0,0,
+  	280,281,5,8,0,0,281,282,5,46,0,0,282,283,3,34,17,0,283,55,1,0,0,0,284,
+  	285,5,38,0,0,285,286,5,10,0,0,286,287,3,16,8,0,287,288,5,11,0,0,288,289,
+  	5,8,0,0,289,290,5,46,0,0,290,295,3,34,17,0,291,292,5,39,0,0,292,293,5,
+  	8,0,0,293,294,5,46,0,0,294,296,3,34,17,0,295,291,1,0,0,0,295,296,1,0,
+  	0,0,296,57,1,0,0,0,29,60,62,75,78,82,88,91,94,108,115,117,121,128,130,
+  	144,152,177,190,194,200,206,218,224,239,243,247,264,273,295
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -280,16 +273,16 @@ RelScriptParser::ProgramContext* RelScriptParser::program() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(64);
+    setState(62);
     _errHandler->sync(this);
     _la = _input->LA(1);
     while (((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 72902791593984) != 0) {
-      setState(62);
+      setState(60);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case RelScriptParser::NEWLINE: {
-          setState(60);
+          setState(58);
           match(RelScriptParser::NEWLINE);
           break;
         }
@@ -300,14 +293,14 @@ RelScriptParser::ProgramContext* RelScriptParser::program() {
         case RelScriptParser::RowType:
         case RelScriptParser::NumberType:
         case RelScriptParser::TupleType:
-        case RelScriptParser::StringWord:
+        case RelScriptParser::StringType:
         case RelScriptParser::LogicType:
         case RelScriptParser::While:
         case RelScriptParser::For:
         case RelScriptParser::Switch:
         case RelScriptParser::If:
         case RelScriptParser::ID: {
-          setState(61);
+          setState(59);
           statement();
           break;
         }
@@ -315,11 +308,11 @@ RelScriptParser::ProgramContext* RelScriptParser::program() {
       default:
         throw NoViableAltException(this);
       }
-      setState(66);
+      setState(64);
       _errHandler->sync(this);
       _la = _input->LA(1);
     }
-    setState(67);
+    setState(65);
     match(RelScriptParser::EOF);
    
   }
@@ -404,53 +397,53 @@ RelScriptParser::StatementContext* RelScriptParser::statement() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(77);
+    setState(75);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 2, _ctx)) {
     case 1: {
-      setState(69);
+      setState(67);
       assignExpression();
       break;
     }
 
     case 2: {
-      setState(70);
+      setState(68);
       functionDeclaration();
       break;
     }
 
     case 3: {
-      setState(71);
+      setState(69);
       functionUsage();
       break;
     }
 
     case 4: {
-      setState(72);
+      setState(70);
       methodUsage();
       break;
     }
 
     case 5: {
-      setState(73);
+      setState(71);
       whileStatement();
       break;
     }
 
     case 6: {
-      setState(74);
+      setState(72);
       forStatement();
       break;
     }
 
     case 7: {
-      setState(75);
+      setState(73);
       switchStatement();
       break;
     }
 
     case 8: {
-      setState(76);
+      setState(74);
       ifStatement();
       break;
     }
@@ -458,12 +451,12 @@ RelScriptParser::StatementContext* RelScriptParser::statement() {
     default:
       break;
     }
-    setState(80);
+    setState(78);
     _errHandler->sync(this);
 
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 3, _ctx)) {
     case 1: {
-      setState(79);
+      setState(77);
       match(RelScriptParser::NEWLINE);
       break;
     }
@@ -539,17 +532,17 @@ RelScriptParser::MethodUsageContext* RelScriptParser::methodUsage() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(84);
+    setState(82);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
     case 1: {
-      setState(82);
+      setState(80);
       match(RelScriptParser::ID);
       break;
     }
 
     case 2: {
-      setState(83);
+      setState(81);
       functionUsage();
       break;
     }
@@ -557,15 +550,15 @@ RelScriptParser::MethodUsageContext* RelScriptParser::methodUsage() {
     default:
       break;
     }
-    setState(88); 
+    setState(86); 
     _errHandler->sync(this);
     _la = _input->LA(1);
     do {
-      setState(86);
+      setState(84);
       match(RelScriptParser::Point);
-      setState(87);
+      setState(85);
       functionUsage();
-      setState(90); 
+      setState(88); 
       _errHandler->sync(this);
       _la = _input->LA(1);
     } while (_la == RelScriptParser::Point);
@@ -637,28 +630,28 @@ RelScriptParser::AssignExpressionContext* RelScriptParser::assignExpression() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(93);
+    setState(91);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (_la == RelScriptParser::Const) {
-      setState(92);
+      setState(90);
       match(RelScriptParser::Const);
     }
-    setState(96);
+    setState(94);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 16646144) != 0) {
-      setState(95);
+      setState(93);
       typeSpecifier();
     }
-    setState(98);
+    setState(96);
     match(RelScriptParser::ID);
-    setState(99);
+    setState(97);
     match(RelScriptParser::Assign);
-    setState(100);
+    setState(98);
     expression();
    
   }
@@ -716,7 +709,7 @@ RelScriptParser::NumberContext* RelScriptParser::number() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(102);
+    setState(100);
     _la = _input->LA(1);
     if (!(_la == RelScriptParser::IntNumber
 
@@ -797,47 +790,47 @@ RelScriptParser::AtomContext* RelScriptParser::atom() {
     exitRule();
   });
   try {
-    setState(110);
+    setState(108);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 8, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(104);
+      setState(102);
       match(RelScriptParser::ID);
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(105);
+      setState(103);
       number();
       break;
     }
 
     case 3: {
       enterOuterAlt(_localctx, 3);
-      setState(106);
+      setState(104);
       match(RelScriptParser::StringLiteral);
       break;
     }
 
     case 4: {
       enterOuterAlt(_localctx, 4);
-      setState(107);
+      setState(105);
       functionUsage();
       break;
     }
 
     case 5: {
       enterOuterAlt(_localctx, 5);
-      setState(108);
+      setState(106);
       methodUsage();
       break;
     }
 
     case 6: {
       enterOuterAlt(_localctx, 6);
-      setState(109);
+      setState(107);
       inBracesExpression();
       break;
     }
@@ -920,34 +913,34 @@ RelScriptParser::ExpressionContext* RelScriptParser::expression() {
     exitRule();
   });
   try {
-    setState(123);
+    setState(121);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 11, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(112);
+      setState(110);
       mulExpression();
-      setState(119);
+      setState(117);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == RelScriptParser::Plus
 
       || _la == RelScriptParser::Minus) {
-        setState(117);
+        setState(115);
         _errHandler->sync(this);
         switch (_input->LA(1)) {
           case RelScriptParser::Plus: {
-            setState(113);
+            setState(111);
             match(RelScriptParser::Plus);
-            setState(114);
+            setState(112);
             mulExpression();
             break;
           }
 
           case RelScriptParser::Minus: {
-            setState(115);
+            setState(113);
             match(RelScriptParser::Minus);
-            setState(116);
+            setState(114);
             mulExpression();
             break;
           }
@@ -955,7 +948,7 @@ RelScriptParser::ExpressionContext* RelScriptParser::expression() {
         default:
           throw NoViableAltException(this);
         }
-        setState(121);
+        setState(119);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -964,7 +957,7 @@ RelScriptParser::ExpressionContext* RelScriptParser::expression() {
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(122);
+      setState(120);
       logicExpression();
       break;
     }
@@ -1044,29 +1037,29 @@ RelScriptParser::MulExpressionContext* RelScriptParser::mulExpression() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(125);
+    setState(123);
     atom();
-    setState(132);
+    setState(130);
     _errHandler->sync(this);
     _la = _input->LA(1);
     while (_la == RelScriptParser::Divide
 
     || _la == RelScriptParser::Multiplication) {
-      setState(130);
+      setState(128);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case RelScriptParser::Multiplication: {
-          setState(126);
+          setState(124);
           match(RelScriptParser::Multiplication);
-          setState(127);
+          setState(125);
           atom();
           break;
         }
 
         case RelScriptParser::Divide: {
-          setState(128);
+          setState(126);
           match(RelScriptParser::Divide);
-          setState(129);
+          setState(127);
           atom();
           break;
         }
@@ -1074,7 +1067,7 @@ RelScriptParser::MulExpressionContext* RelScriptParser::mulExpression() {
       default:
         throw NoViableAltException(this);
       }
-      setState(134);
+      setState(132);
       _errHandler->sync(this);
       _la = _input->LA(1);
     }
@@ -1153,47 +1146,47 @@ RelScriptParser::LogicExpressionContext* RelScriptParser::logicExpression() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(135);
+    setState(133);
     atom();
-    setState(146);
+    setState(144);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case RelScriptParser::Equal: {
-        setState(136);
+        setState(134);
         match(RelScriptParser::Equal);
-        setState(137);
+        setState(135);
         atom();
         break;
       }
 
       case RelScriptParser::More: {
-        setState(138);
+        setState(136);
         match(RelScriptParser::More);
-        setState(139);
+        setState(137);
         atom();
         break;
       }
 
       case RelScriptParser::Less: {
-        setState(140);
+        setState(138);
         match(RelScriptParser::Less);
-        setState(141);
+        setState(139);
         atom();
         break;
       }
 
       case RelScriptParser::MoreEqual: {
-        setState(142);
+        setState(140);
         match(RelScriptParser::MoreEqual);
-        setState(143);
+        setState(141);
         atom();
         break;
       }
 
       case RelScriptParser::LessEqual: {
-        setState(144);
+        setState(142);
         match(RelScriptParser::LessEqual);
-        setState(145);
+        setState(143);
         atom();
         break;
       }
@@ -1212,7 +1205,7 @@ RelScriptParser::LogicExpressionContext* RelScriptParser::logicExpression() {
       case RelScriptParser::RowType:
       case RelScriptParser::NumberType:
       case RelScriptParser::TupleType:
-      case RelScriptParser::StringWord:
+      case RelScriptParser::StringType:
       case RelScriptParser::LogicType:
       case RelScriptParser::While:
       case RelScriptParser::For:
@@ -1306,7 +1299,7 @@ RelScriptParser::BinarySignContext* RelScriptParser::binarySign() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(148);
+    setState(146);
     _la = _input->LA(1);
     if (!(((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 8438939648) != 0)) {
@@ -1378,33 +1371,33 @@ RelScriptParser::InBracesExpressionContext* RelScriptParser::inBracesExpression(
     exitRule();
   });
   try {
-    setState(154);
+    setState(152);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 15, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(150);
+      setState(148);
       inCurlyExpression();
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(151);
+      setState(149);
       columnConstructor();
       break;
     }
 
     case 3: {
       enterOuterAlt(_localctx, 3);
-      setState(152);
+      setState(150);
       inSquareExpression();
       break;
     }
 
     case 4: {
       enterOuterAlt(_localctx, 4);
-      setState(153);
+      setState(151);
       inParenExpression();
       break;
     }
@@ -1484,9 +1477,9 @@ RelScriptParser::ColumnConstructorContext* RelScriptParser::columnConstructor() 
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(156);
+    setState(154);
     match(RelScriptParser::LParen);
-    setState(157);
+    setState(155);
     _la = _input->LA(1);
     if (!(_la == RelScriptParser::ID
 
@@ -1497,11 +1490,11 @@ RelScriptParser::ColumnConstructorContext* RelScriptParser::columnConstructor() 
       _errHandler->reportMatch(this);
       consume();
     }
-    setState(158);
+    setState(156);
     match(RelScriptParser::Comma);
-    setState(159);
+    setState(157);
     typeSpecifier();
-    setState(160);
+    setState(158);
     match(RelScriptParser::RParen);
    
   }
@@ -1562,11 +1555,11 @@ RelScriptParser::InCurlyExpressionContext* RelScriptParser::inCurlyExpression() 
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(162);
+    setState(160);
     match(RelScriptParser::LCurly);
-    setState(163);
+    setState(161);
     expressionInsideBraces();
-    setState(164);
+    setState(162);
     match(RelScriptParser::RCurly);
    
   }
@@ -1627,11 +1620,11 @@ RelScriptParser::InSquareExpressionContext* RelScriptParser::inSquareExpression(
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(166);
+    setState(164);
     match(RelScriptParser::LSquare);
-    setState(167);
+    setState(165);
     expressionInsideBraces();
-    setState(168);
+    setState(166);
     match(RelScriptParser::RSquare);
    
   }
@@ -1692,11 +1685,11 @@ RelScriptParser::InParenExpressionContext* RelScriptParser::inParenExpression() 
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(170);
+    setState(168);
     match(RelScriptParser::LParen);
-    setState(171);
+    setState(169);
     expressionInsideBraces();
-    setState(172);
+    setState(170);
     match(RelScriptParser::RParen);
    
   }
@@ -1756,23 +1749,23 @@ RelScriptParser::ExpressionInsideBracesContext* RelScriptParser::expressionInsid
     exitRule();
   });
   try {
-    setState(179);
+    setState(177);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 16, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(174);
+      setState(172);
       expression();
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(175);
+      setState(173);
       expression();
-      setState(176);
+      setState(174);
       match(RelScriptParser::Comma);
-      setState(177);
+      setState(175);
       expressionInsideBraces();
       break;
     }
@@ -1851,17 +1844,17 @@ RelScriptParser::FunctionDeclarationContext* RelScriptParser::functionDeclaratio
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(181);
+    setState(179);
     typeSpecifier();
-    setState(182);
+    setState(180);
     match(RelScriptParser::ID);
-    setState(183);
+    setState(181);
     functionDeclarationBraces();
-    setState(184);
+    setState(182);
     match(RelScriptParser::BlockStart);
-    setState(185);
+    setState(183);
     match(RelScriptParser::NEWLINE);
-    setState(186);
+    setState(184);
     block();
    
   }
@@ -1931,28 +1924,28 @@ RelScriptParser::BlockContext* RelScriptParser::block() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(188);
+    setState(186);
     match(RelScriptParser::INDENT);
-    setState(192);
+    setState(190);
     _errHandler->sync(this);
     _la = _input->LA(1);
     while (((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 2534047416320) != 0) {
-      setState(189);
+      setState(187);
       statement();
-      setState(194);
+      setState(192);
       _errHandler->sync(this);
       _la = _input->LA(1);
     }
-    setState(196);
+    setState(194);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (_la == RelScriptParser::Return) {
-      setState(195);
+      setState(193);
       returnExpression();
     }
-    setState(198);
+    setState(196);
     match(RelScriptParser::DEDENT);
    
   }
@@ -2014,18 +2007,18 @@ RelScriptParser::ReturnExpressionContext* RelScriptParser::returnExpression() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(200);
+    setState(198);
     match(RelScriptParser::Return);
-    setState(202);
+    setState(200);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 32985348854784) != 0) {
-      setState(201);
+      setState(199);
       expression();
     }
-    setState(204);
+    setState(202);
     match(RelScriptParser::NEWLINE);
    
   }
@@ -2087,18 +2080,18 @@ RelScriptParser::FunctionDeclarationBracesContext* RelScriptParser::functionDecl
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(206);
+    setState(204);
     match(RelScriptParser::LParen);
-    setState(208);
+    setState(206);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 16646144) != 0) {
-      setState(207);
+      setState(205);
       functionDeclarationArgs();
     }
-    setState(210);
+    setState(208);
     match(RelScriptParser::RParen);
    
   }
@@ -2162,27 +2155,27 @@ RelScriptParser::FunctionDeclarationArgsContext* RelScriptParser::functionDeclar
     exitRule();
   });
   try {
-    setState(220);
+    setState(218);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 21, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(212);
+      setState(210);
       typeSpecifier();
-      setState(213);
+      setState(211);
       match(RelScriptParser::ID);
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(215);
+      setState(213);
       typeSpecifier();
-      setState(216);
+      setState(214);
       match(RelScriptParser::ID);
-      setState(217);
+      setState(215);
       match(RelScriptParser::Comma);
-      setState(218);
+      setState(216);
       functionDeclarationArgs();
       break;
     }
@@ -2253,21 +2246,21 @@ RelScriptParser::FunctionUsageContext* RelScriptParser::functionUsage() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(222);
+    setState(220);
     match(RelScriptParser::ID);
-    setState(226);
+    setState(224);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 22, _ctx)) {
     case 1: {
-      setState(223);
+      setState(221);
       match(RelScriptParser::LParen);
-      setState(224);
+      setState(222);
       match(RelScriptParser::RParen);
       break;
     }
 
     case 2: {
-      setState(225);
+      setState(223);
       inParenExpression();
       break;
     }
@@ -2304,8 +2297,8 @@ tree::TerminalNode* RelScriptParser::TypeSpecifierContext::RowType() {
   return getToken(RelScriptParser::RowType, 0);
 }
 
-RelScriptParser::StringTypeContext* RelScriptParser::TypeSpecifierContext::stringType() {
-  return getRuleContext<RelScriptParser::StringTypeContext>(0);
+tree::TerminalNode* RelScriptParser::TypeSpecifierContext::StringType() {
+  return getToken(RelScriptParser::StringType, 0);
 }
 
 tree::TerminalNode* RelScriptParser::TypeSpecifierContext::NumberType() {
@@ -2340,123 +2333,7 @@ void RelScriptParser::TypeSpecifierContext::exitRule(tree::ParseTreeListener *li
 RelScriptParser::TypeSpecifierContext* RelScriptParser::typeSpecifier() {
   TypeSpecifierContext *_localctx = _tracker.createInstance<TypeSpecifierContext>(_ctx, getState());
   enterRule(_localctx, 44, RelScriptParser::RuleTypeSpecifier);
-
-#if __cplusplus > 201703L
-  auto onExit = finally([=, this] {
-#else
-  auto onExit = finally([=] {
-#endif
-    exitRule();
-  });
-  try {
-    setState(235);
-    _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case RelScriptParser::TableType: {
-        enterOuterAlt(_localctx, 1);
-        setState(228);
-        match(RelScriptParser::TableType);
-        break;
-      }
-
-      case RelScriptParser::ColumnType: {
-        enterOuterAlt(_localctx, 2);
-        setState(229);
-        match(RelScriptParser::ColumnType);
-        break;
-      }
-
-      case RelScriptParser::RowType: {
-        enterOuterAlt(_localctx, 3);
-        setState(230);
-        match(RelScriptParser::RowType);
-        break;
-      }
-
-      case RelScriptParser::StringWord: {
-        enterOuterAlt(_localctx, 4);
-        setState(231);
-        stringType();
-        break;
-      }
-
-      case RelScriptParser::NumberType: {
-        enterOuterAlt(_localctx, 5);
-        setState(232);
-        match(RelScriptParser::NumberType);
-        break;
-      }
-
-      case RelScriptParser::TupleType: {
-        enterOuterAlt(_localctx, 6);
-        setState(233);
-        match(RelScriptParser::TupleType);
-        break;
-      }
-
-      case RelScriptParser::LogicType: {
-        enterOuterAlt(_localctx, 7);
-        setState(234);
-        match(RelScriptParser::LogicType);
-        break;
-      }
-
-    default:
-      throw NoViableAltException(this);
-    }
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- StringTypeContext ------------------------------------------------------------------
-
-RelScriptParser::StringTypeContext::StringTypeContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-tree::TerminalNode* RelScriptParser::StringTypeContext::StringWord() {
-  return getToken(RelScriptParser::StringWord, 0);
-}
-
-tree::TerminalNode* RelScriptParser::StringTypeContext::LParen() {
-  return getToken(RelScriptParser::LParen, 0);
-}
-
-tree::TerminalNode* RelScriptParser::StringTypeContext::IntNumber() {
-  return getToken(RelScriptParser::IntNumber, 0);
-}
-
-tree::TerminalNode* RelScriptParser::StringTypeContext::RParen() {
-  return getToken(RelScriptParser::RParen, 0);
-}
-
-
-size_t RelScriptParser::StringTypeContext::getRuleIndex() const {
-  return RelScriptParser::RuleStringType;
-}
-
-void RelScriptParser::StringTypeContext::enterRule(tree::ParseTreeListener *listener) {
-  auto parserListener = dynamic_cast<RelScriptParserListener *>(listener);
-  if (parserListener != nullptr)
-    parserListener->enterStringType(this);
-}
-
-void RelScriptParser::StringTypeContext::exitRule(tree::ParseTreeListener *listener) {
-  auto parserListener = dynamic_cast<RelScriptParserListener *>(listener);
-  if (parserListener != nullptr)
-    parserListener->exitStringType(this);
-}
-
-RelScriptParser::StringTypeContext* RelScriptParser::stringType() {
-  StringTypeContext *_localctx = _tracker.createInstance<StringTypeContext>(_ctx, getState());
-  enterRule(_localctx, 46, RelScriptParser::RuleStringType);
+  size_t _la = 0;
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -2467,14 +2344,16 @@ RelScriptParser::StringTypeContext* RelScriptParser::stringType() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(237);
-    match(RelScriptParser::StringWord);
-    setState(238);
-    match(RelScriptParser::LParen);
-    setState(239);
-    match(RelScriptParser::IntNumber);
-    setState(240);
-    match(RelScriptParser::RParen);
+    setState(226);
+    _la = _input->LA(1);
+    if (!(((_la & ~ 0x3fULL) == 0) &&
+      ((1ULL << _la) & 16646144) != 0)) {
+    _errHandler->recoverInline(this);
+    }
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
    
   }
   catch (RecognitionException &e) {
@@ -2539,7 +2418,7 @@ void RelScriptParser::WhileStatementContext::exitRule(tree::ParseTreeListener *l
 
 RelScriptParser::WhileStatementContext* RelScriptParser::whileStatement() {
   WhileStatementContext *_localctx = _tracker.createInstance<WhileStatementContext>(_ctx, getState());
-  enterRule(_localctx, 48, RelScriptParser::RuleWhileStatement);
+  enterRule(_localctx, 46, RelScriptParser::RuleWhileStatement);
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -2550,19 +2429,19 @@ RelScriptParser::WhileStatementContext* RelScriptParser::whileStatement() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(242);
+    setState(228);
     match(RelScriptParser::While);
-    setState(243);
+    setState(229);
     match(RelScriptParser::LParen);
-    setState(244);
+    setState(230);
     logicExpression();
-    setState(245);
+    setState(231);
     match(RelScriptParser::RParen);
-    setState(246);
+    setState(232);
     match(RelScriptParser::BlockStart);
-    setState(247);
+    setState(233);
     match(RelScriptParser::NEWLINE);
-    setState(248);
+    setState(234);
     block();
    
   }
@@ -2644,7 +2523,7 @@ void RelScriptParser::ForStatementContext::exitRule(tree::ParseTreeListener *lis
 
 RelScriptParser::ForStatementContext* RelScriptParser::forStatement() {
   ForStatementContext *_localctx = _tracker.createInstance<ForStatementContext>(_ctx, getState());
-  enterRule(_localctx, 50, RelScriptParser::RuleForStatement);
+  enterRule(_localctx, 48, RelScriptParser::RuleForStatement);
   size_t _la = 0;
 
 #if __cplusplus > 201703L
@@ -2656,48 +2535,48 @@ RelScriptParser::ForStatementContext* RelScriptParser::forStatement() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(250);
+    setState(236);
     match(RelScriptParser::For);
-    setState(251);
+    setState(237);
     match(RelScriptParser::LParen);
-    setState(253);
+    setState(239);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 2199039967232) != 0) {
-      setState(252);
+      setState(238);
       assignExpression();
     }
-    setState(255);
+    setState(241);
     match(RelScriptParser::Semi);
-    setState(257);
+    setState(243);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 32985348854784) != 0) {
-      setState(256);
+      setState(242);
       logicExpression();
     }
-    setState(259);
+    setState(245);
     match(RelScriptParser::Semi);
-    setState(261);
+    setState(247);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & 2199039967232) != 0) {
-      setState(260);
+      setState(246);
       assignExpression();
     }
-    setState(263);
+    setState(249);
     match(RelScriptParser::RParen);
-    setState(264);
+    setState(250);
     match(RelScriptParser::BlockStart);
-    setState(265);
+    setState(251);
     match(RelScriptParser::NEWLINE);
-    setState(266);
+    setState(252);
     block();
    
   }
@@ -2779,7 +2658,7 @@ void RelScriptParser::SwitchStatementContext::exitRule(tree::ParseTreeListener *
 
 RelScriptParser::SwitchStatementContext* RelScriptParser::switchStatement() {
   SwitchStatementContext *_localctx = _tracker.createInstance<SwitchStatementContext>(_ctx, getState());
-  enterRule(_localctx, 52, RelScriptParser::RuleSwitchStatement);
+  enterRule(_localctx, 50, RelScriptParser::RuleSwitchStatement);
   size_t _la = 0;
 
 #if __cplusplus > 201703L
@@ -2791,33 +2670,33 @@ RelScriptParser::SwitchStatementContext* RelScriptParser::switchStatement() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(268);
+    setState(254);
     match(RelScriptParser::Switch);
-    setState(269);
+    setState(255);
     match(RelScriptParser::LParen);
-    setState(270);
+    setState(256);
     match(RelScriptParser::ID);
-    setState(271);
+    setState(257);
     match(RelScriptParser::RParen);
-    setState(272);
+    setState(258);
     match(RelScriptParser::BlockStart);
-    setState(273);
+    setState(259);
     match(RelScriptParser::NEWLINE);
-    setState(274);
+    setState(260);
     match(RelScriptParser::INDENT);
-    setState(278);
+    setState(264);
     _errHandler->sync(this);
     _la = _input->LA(1);
     while (_la == RelScriptParser::Case) {
-      setState(275);
+      setState(261);
       caseStatement();
-      setState(280);
+      setState(266);
       _errHandler->sync(this);
       _la = _input->LA(1);
     }
-    setState(281);
+    setState(267);
     defaultStatement();
-    setState(282);
+    setState(268);
     match(RelScriptParser::DEDENT);
    
   }
@@ -2879,7 +2758,7 @@ void RelScriptParser::CaseStatementContext::exitRule(tree::ParseTreeListener *li
 
 RelScriptParser::CaseStatementContext* RelScriptParser::caseStatement() {
   CaseStatementContext *_localctx = _tracker.createInstance<CaseStatementContext>(_ctx, getState());
-  enterRule(_localctx, 54, RelScriptParser::RuleCaseStatement);
+  enterRule(_localctx, 52, RelScriptParser::RuleCaseStatement);
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -2890,20 +2769,20 @@ RelScriptParser::CaseStatementContext* RelScriptParser::caseStatement() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(284);
+    setState(270);
     match(RelScriptParser::Case);
-    setState(287);
+    setState(273);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case RelScriptParser::StringLiteral: {
-        setState(285);
+        setState(271);
         match(RelScriptParser::StringLiteral);
         break;
       }
 
       case RelScriptParser::IntNumber:
       case RelScriptParser::FloatNumber: {
-        setState(286);
+        setState(272);
         number();
         break;
       }
@@ -2911,11 +2790,11 @@ RelScriptParser::CaseStatementContext* RelScriptParser::caseStatement() {
     default:
       throw NoViableAltException(this);
     }
-    setState(289);
+    setState(275);
     match(RelScriptParser::BlockStart);
-    setState(290);
+    setState(276);
     match(RelScriptParser::NEWLINE);
-    setState(291);
+    setState(277);
     block();
    
   }
@@ -2969,7 +2848,7 @@ void RelScriptParser::DefaultStatementContext::exitRule(tree::ParseTreeListener 
 
 RelScriptParser::DefaultStatementContext* RelScriptParser::defaultStatement() {
   DefaultStatementContext *_localctx = _tracker.createInstance<DefaultStatementContext>(_ctx, getState());
-  enterRule(_localctx, 56, RelScriptParser::RuleDefaultStatement);
+  enterRule(_localctx, 54, RelScriptParser::RuleDefaultStatement);
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -2980,13 +2859,13 @@ RelScriptParser::DefaultStatementContext* RelScriptParser::defaultStatement() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(293);
+    setState(279);
     match(RelScriptParser::Default);
-    setState(294);
+    setState(280);
     match(RelScriptParser::BlockStart);
-    setState(295);
+    setState(281);
     match(RelScriptParser::NEWLINE);
-    setState(296);
+    setState(282);
     block();
    
   }
@@ -3068,7 +2947,7 @@ void RelScriptParser::IfStatementContext::exitRule(tree::ParseTreeListener *list
 
 RelScriptParser::IfStatementContext* RelScriptParser::ifStatement() {
   IfStatementContext *_localctx = _tracker.createInstance<IfStatementContext>(_ctx, getState());
-  enterRule(_localctx, 58, RelScriptParser::RuleIfStatement);
+  enterRule(_localctx, 56, RelScriptParser::RuleIfStatement);
   size_t _la = 0;
 
 #if __cplusplus > 201703L
@@ -3080,32 +2959,32 @@ RelScriptParser::IfStatementContext* RelScriptParser::ifStatement() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(298);
+    setState(284);
     match(RelScriptParser::If);
-    setState(299);
+    setState(285);
     match(RelScriptParser::LParen);
-    setState(300);
+    setState(286);
     logicExpression();
-    setState(301);
+    setState(287);
     match(RelScriptParser::RParen);
-    setState(302);
+    setState(288);
     match(RelScriptParser::BlockStart);
-    setState(303);
+    setState(289);
     match(RelScriptParser::NEWLINE);
-    setState(304);
+    setState(290);
     block();
-    setState(309);
+    setState(295);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if (_la == RelScriptParser::Else) {
-      setState(305);
+      setState(291);
       match(RelScriptParser::Else);
-      setState(306);
+      setState(292);
       match(RelScriptParser::BlockStart);
-      setState(307);
+      setState(293);
       match(RelScriptParser::NEWLINE);
-      setState(308);
+      setState(294);
       block();
     }
    

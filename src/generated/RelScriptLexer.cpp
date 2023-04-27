@@ -55,7 +55,7 @@ void relscriptlexerLexerInitialize() {
     std::vector<std::string>{
       "Assign", "Comma", "Semi", "Quot", "Return", "BlockStart", "Point", 
       "LParen", "RParen", "LCurly", "RCurly", "LSquare", "RSquare", "Const", 
-      "TableType", "ColumnType", "RowType", "NumberType", "TupleType", "StringWord", 
+      "TableType", "ColumnType", "RowType", "NumberType", "TupleType", "StringType", 
       "LogicType", "Plus", "Minus", "Divide", "Multiplication", "Less", 
       "Equal", "More", "LessEqual", "MoreEqual", "While", "For", "Switch", 
       "Case", "Default", "If", "Else", "Break", "ID", "IntNumber", "FloatNumber", 
@@ -80,7 +80,7 @@ void relscriptlexerLexerInitialize() {
       "", "INDENT", "DEDENT", "Assign", "Comma", "Semi", "Quot", "Return", 
       "BlockStart", "Point", "LParen", "RParen", "LCurly", "RCurly", "LSquare", 
       "RSquare", "Const", "TableType", "ColumnType", "RowType", "NumberType", 
-      "TupleType", "StringWord", "LogicType", "Plus", "Minus", "Divide", 
+      "TupleType", "StringType", "LogicType", "Plus", "Minus", "Divide", 
       "Multiplication", "Less", "Equal", "More", "LessEqual", "MoreEqual", 
       "While", "For", "Switch", "Case", "Default", "If", "Else", "Break", 
       "ID", "IntNumber", "FloatNumber", "StringLiteral", "UnterminatedStringLiteral", 

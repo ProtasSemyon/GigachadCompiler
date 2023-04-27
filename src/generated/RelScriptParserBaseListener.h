@@ -85,9 +85,6 @@ public:
   virtual void enterTypeSpecifier(RelScriptParser::TypeSpecifierContext * /*ctx*/) override { }
   virtual void exitTypeSpecifier(RelScriptParser::TypeSpecifierContext * /*ctx*/) override { }
 
-  virtual void enterStringType(RelScriptParser::StringTypeContext * /*ctx*/) override { }
-  virtual void exitStringType(RelScriptParser::StringTypeContext * /*ctx*/) override { }
-
   virtual void enterWhileStatement(RelScriptParser::WhileStatementContext * /*ctx*/) override { }
   virtual void exitWhileStatement(RelScriptParser::WhileStatementContext * /*ctx*/) override { }
 

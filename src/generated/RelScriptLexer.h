@@ -28,7 +28,7 @@ public:
     INDENT = 1, DEDENT = 2, Assign = 3, Comma = 4, Semi = 5, Quot = 6, Return = 7, 
     BlockStart = 8, Point = 9, LParen = 10, RParen = 11, LCurly = 12, RCurly = 13, 
     LSquare = 14, RSquare = 15, Const = 16, TableType = 17, ColumnType = 18, 
-    RowType = 19, NumberType = 20, TupleType = 21, StringWord = 22, LogicType = 23, 
+    RowType = 19, NumberType = 20, TupleType = 21, StringType = 22, LogicType = 23, 
     Plus = 24, Minus = 25, Divide = 26, Multiplication = 27, Less = 28, 
     Equal = 29, More = 30, LessEqual = 31, MoreEqual = 32, While = 33, For = 34, 
     Switch = 35, Case = 36, Default = 37, If = 38, Else = 39, Break = 40, 

@@ -123,7 +123,7 @@ ColumnType : 'column';
 RowType : 'row';
 NumberType : 'number';
 TupleType : 'tuple';
-StringWord : 'string';
+StringType : 'string';
 LogicType : 'logic';
 
 //math operands

@@ -83,9 +83,6 @@ public:
   virtual void enterTypeSpecifier(RelScriptParser::TypeSpecifierContext *ctx) = 0;
   virtual void exitTypeSpecifier(RelScriptParser::TypeSpecifierContext *ctx) = 0;
 
-  virtual void enterStringType(RelScriptParser::StringTypeContext *ctx) = 0;
-  virtual void exitStringType(RelScriptParser::StringTypeContext *ctx) = 0;
-
   virtual void enterWhileStatement(RelScriptParser::WhileStatementContext *ctx) = 0;
   virtual void exitWhileStatement(RelScriptParser::WhileStatementContext *ctx) = 0;
 
