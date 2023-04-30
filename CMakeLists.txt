@@ -12,6 +12,30 @@ file(
   "src/*.cpp"
   )
 
+set(TYPE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/types)
+set(IR_OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/ir)
+
+file(GLOB_RECURSE TYPE_SOURCES ${TYPE_SOURCE_DIR}/*.c)
+
+foreach(TYPE_SOURCE ${TYPE_SOURCES})
+  get_filename_component(TYPE_SOURCE_NAME ${TYPE_SOURCE} NAME_WE)
+  set(TYPE_BC_FILE ${IR_OUTPUT_DIR}/${TYPE_SOURCE_NAME}.bc)
+  add_custom_command(
+    OUTPUT ${TYPE_BC_FILE}
+    COMMAND mkdir -p ${IR_OUTPUT_DIR}
+    COMMAND clang++ -S -emit-llvm ${TYPE_SOURCE} -o ${TYPE_BC_FILE}
+    DEPENDS ${TYPE_SOURCE}
+  )
+  list(APPEND TYPE_BC_FILES ${TYPE_BC_FILE})
+endforeach()
+
+add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/types.bc
+    COMMAND llvm-link ${TYPE_BC_FILES} -o ${TYPE_SOURCE_DIR}/types.bc
+    DEPENDS ${TYPE_BC_FILES})
+
+add_custom_target(IR ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/types.bc)
+
 add_executable(GigachadCompiler ${SOURCES} main.cpp)
 
 # Find LLVM package
