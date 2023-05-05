@@ -37,20 +37,29 @@ public:
   virtual void enterExpression(RelScriptParser::ExpressionContext * /*ctx*/) override { }
   virtual void exitExpression(RelScriptParser::ExpressionContext * /*ctx*/) override { }
 
+  virtual void enterPlusMinusExpr(RelScriptParser::PlusMinusExprContext * /*ctx*/) override { }
+  virtual void exitPlusMinusExpr(RelScriptParser::PlusMinusExprContext * /*ctx*/) override { }
+
   virtual void enterMulExpression(RelScriptParser::MulExpressionContext * /*ctx*/) override { }
   virtual void exitMulExpression(RelScriptParser::MulExpressionContext * /*ctx*/) override { }
 
+  virtual void enterMulDivExpr(RelScriptParser::MulDivExprContext * /*ctx*/) override { }
+  virtual void exitMulDivExpr(RelScriptParser::MulDivExprContext * /*ctx*/) override { }
+
   virtual void enterLogicExpression(RelScriptParser::LogicExpressionContext * /*ctx*/) override { }
   virtual void exitLogicExpression(RelScriptParser::LogicExpressionContext * /*ctx*/) override { }
-
-  virtual void enterBinarySign(RelScriptParser::BinarySignContext * /*ctx*/) override { }
-  virtual void exitBinarySign(RelScriptParser::BinarySignContext * /*ctx*/) override { }
 
   virtual void enterInBracesExpression(RelScriptParser::InBracesExpressionContext * /*ctx*/) override { }
   virtual void exitInBracesExpression(RelScriptParser::InBracesExpressionContext * /*ctx*/) override { }
 
   virtual void enterColumnConstructor(RelScriptParser::ColumnConstructorContext * /*ctx*/) override { }
   virtual void exitColumnConstructor(RelScriptParser::ColumnConstructorContext * /*ctx*/) override { }
+
+  virtual void enterTableConstructor(RelScriptParser::TableConstructorContext * /*ctx*/) override { }
+  virtual void exitTableConstructor(RelScriptParser::TableConstructorContext * /*ctx*/) override { }
+
+  virtual void enterIdColumnConstr(RelScriptParser::IdColumnConstrContext * /*ctx*/) override { }
+  virtual void exitIdColumnConstr(RelScriptParser::IdColumnConstrContext * /*ctx*/) override { }
 
   virtual void enterInCurlyExpression(RelScriptParser::InCurlyExpressionContext * /*ctx*/) override { }
   virtual void exitInCurlyExpression(RelScriptParser::InCurlyExpressionContext * /*ctx*/) override { }

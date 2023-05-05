@@ -34,32 +34,35 @@ atom
   ;
 
 expression
-  : mulExpression (Plus mulExpression | Minus mulExpression)* | logicExpression;
+  : mulExpression plusMinusExpr* | logicExpression;
+
+plusMinusExpr
+  : (Plus | Minus) mulExpression;
 
 mulExpression
-  : atom (Multiplication atom | Divide atom)*;
+  : atom mulDivExpr*;
+
+mulDivExpr
+  : (Multiplication | Divide) atom;
 
 logicExpression
   : atom (Equal atom | More atom | Less atom | MoreEqual atom | LessEqual atom)?;
 
-binarySign
-  : Plus
-  | Minus
-  | Divide
-  | LessEqual
-  | MoreEqual
-  | Less
-  | More
-  | Equal;
-
 inBracesExpression 
   : inCurlyExpression 
   | columnConstructor
+  | tableConstructor
   | inSquareExpression 
   | inParenExpression;
 
 columnConstructor
-  : LParen (ID | StringLiteral) Comma typeSpecifier RParen;
+  : LParen (ID | StringLiteral) RParen;
+
+tableConstructor
+  : LSquare idColumnConstr (Comma idColumnConstr)* RSquare;
+
+idColumnConstr
+  : (ID | columnConstructor);
 
 inCurlyExpression 
   : LCurly expressionInsideBraces RCurly;

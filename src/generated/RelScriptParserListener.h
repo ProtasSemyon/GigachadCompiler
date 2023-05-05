@@ -35,20 +35,29 @@ public:
   virtual void enterExpression(RelScriptParser::ExpressionContext *ctx) = 0;
   virtual void exitExpression(RelScriptParser::ExpressionContext *ctx) = 0;
 
+  virtual void enterPlusMinusExpr(RelScriptParser::PlusMinusExprContext *ctx) = 0;
+  virtual void exitPlusMinusExpr(RelScriptParser::PlusMinusExprContext *ctx) = 0;
+
   virtual void enterMulExpression(RelScriptParser::MulExpressionContext *ctx) = 0;
   virtual void exitMulExpression(RelScriptParser::MulExpressionContext *ctx) = 0;
 
+  virtual void enterMulDivExpr(RelScriptParser::MulDivExprContext *ctx) = 0;
+  virtual void exitMulDivExpr(RelScriptParser::MulDivExprContext *ctx) = 0;
+
   virtual void enterLogicExpression(RelScriptParser::LogicExpressionContext *ctx) = 0;
   virtual void exitLogicExpression(RelScriptParser::LogicExpressionContext *ctx) = 0;
-
-  virtual void enterBinarySign(RelScriptParser::BinarySignContext *ctx) = 0;
-  virtual void exitBinarySign(RelScriptParser::BinarySignContext *ctx) = 0;
 
   virtual void enterInBracesExpression(RelScriptParser::InBracesExpressionContext *ctx) = 0;
   virtual void exitInBracesExpression(RelScriptParser::InBracesExpressionContext *ctx) = 0;
 
   virtual void enterColumnConstructor(RelScriptParser::ColumnConstructorContext *ctx) = 0;
   virtual void exitColumnConstructor(RelScriptParser::ColumnConstructorContext *ctx) = 0;
+
+  virtual void enterTableConstructor(RelScriptParser::TableConstructorContext *ctx) = 0;
+  virtual void exitTableConstructor(RelScriptParser::TableConstructorContext *ctx) = 0;
+
+  virtual void enterIdColumnConstr(RelScriptParser::IdColumnConstrContext *ctx) = 0;
+  virtual void exitIdColumnConstr(RelScriptParser::IdColumnConstrContext *ctx) = 0;
 
   virtual void enterInCurlyExpression(RelScriptParser::InCurlyExpressionContext *ctx) = 0;
   virtual void exitInCurlyExpression(RelScriptParser::InCurlyExpressionContext *ctx) = 0;

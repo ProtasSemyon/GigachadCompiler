@@ -25,14 +25,15 @@ public:
 
   enum {
     RuleProgram = 0, RuleStatement = 1, RuleMethodUsage = 2, RuleAssignExpression = 3, 
-    RuleNumber = 4, RuleAtom = 5, RuleExpression = 6, RuleMulExpression = 7, 
-    RuleLogicExpression = 8, RuleBinarySign = 9, RuleInBracesExpression = 10, 
-    RuleColumnConstructor = 11, RuleInCurlyExpression = 12, RuleInSquareExpression = 13, 
-    RuleInParenExpression = 14, RuleExpressionInsideBraces = 15, RuleFunctionDeclaration = 16, 
-    RuleBlock = 17, RuleReturnExpression = 18, RuleFunctionDeclarationBraces = 19, 
-    RuleFunctionDeclarationArgs = 20, RuleFunctionUsage = 21, RuleTypeSpecifier = 22, 
-    RuleWhileStatement = 23, RuleForStatement = 24, RuleSwitchStatement = 25, 
-    RuleCaseStatement = 26, RuleDefaultStatement = 27, RuleIfStatement = 28
+    RuleNumber = 4, RuleAtom = 5, RuleExpression = 6, RulePlusMinusExpr = 7, 
+    RuleMulExpression = 8, RuleMulDivExpr = 9, RuleLogicExpression = 10, 
+    RuleInBracesExpression = 11, RuleColumnConstructor = 12, RuleTableConstructor = 13, 
+    RuleIdColumnConstr = 14, RuleInCurlyExpression = 15, RuleInSquareExpression = 16, 
+    RuleInParenExpression = 17, RuleExpressionInsideBraces = 18, RuleFunctionDeclaration = 19, 
+    RuleBlock = 20, RuleReturnExpression = 21, RuleFunctionDeclarationBraces = 22, 
+    RuleFunctionDeclarationArgs = 23, RuleFunctionUsage = 24, RuleTypeSpecifier = 25, 
+    RuleWhileStatement = 26, RuleForStatement = 27, RuleSwitchStatement = 28, 
+    RuleCaseStatement = 29, RuleDefaultStatement = 30, RuleIfStatement = 31
   };
 
   explicit RelScriptParser(antlr4::TokenStream *input);
@@ -59,11 +60,14 @@ public:
   class NumberContext;
   class AtomContext;
   class ExpressionContext;
+  class PlusMinusExprContext;
   class MulExpressionContext;
+  class MulDivExprContext;
   class LogicExpressionContext;
-  class BinarySignContext;
   class InBracesExpressionContext;
   class ColumnConstructorContext;
+  class TableConstructorContext;
+  class IdColumnConstrContext;
   class InCurlyExpressionContext;
   class InSquareExpressionContext;
   class InParenExpressionContext;
@@ -190,12 +194,9 @@ public:
   public:
     ExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<MulExpressionContext *> mulExpression();
-    MulExpressionContext* mulExpression(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> Plus();
-    antlr4::tree::TerminalNode* Plus(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> Minus();
-    antlr4::tree::TerminalNode* Minus(size_t i);
+    MulExpressionContext *mulExpression();
+    std::vector<PlusMinusExprContext *> plusMinusExpr();
+    PlusMinusExprContext* plusMinusExpr(size_t i);
     LogicExpressionContext *logicExpression();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -205,16 +206,28 @@ public:
 
   ExpressionContext* expression();
 
+  class  PlusMinusExprContext : public antlr4::ParserRuleContext {
+  public:
+    PlusMinusExprContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    MulExpressionContext *mulExpression();
+    antlr4::tree::TerminalNode *Plus();
+    antlr4::tree::TerminalNode *Minus();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  PlusMinusExprContext* plusMinusExpr();
+
   class  MulExpressionContext : public antlr4::ParserRuleContext {
   public:
     MulExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<AtomContext *> atom();
-    AtomContext* atom(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> Multiplication();
-    antlr4::tree::TerminalNode* Multiplication(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> Divide();
-    antlr4::tree::TerminalNode* Divide(size_t i);
+    AtomContext *atom();
+    std::vector<MulDivExprContext *> mulDivExpr();
+    MulDivExprContext* mulDivExpr(size_t i);
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -222,6 +235,21 @@ public:
   };
 
   MulExpressionContext* mulExpression();
+
+  class  MulDivExprContext : public antlr4::ParserRuleContext {
+  public:
+    MulDivExprContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    AtomContext *atom();
+    antlr4::tree::TerminalNode *Multiplication();
+    antlr4::tree::TerminalNode *Divide();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  MulDivExprContext* mulDivExpr();
 
   class  LogicExpressionContext : public antlr4::ParserRuleContext {
   public:
@@ -242,32 +270,13 @@ public:
 
   LogicExpressionContext* logicExpression();
 
-  class  BinarySignContext : public antlr4::ParserRuleContext {
-  public:
-    BinarySignContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Plus();
-    antlr4::tree::TerminalNode *Minus();
-    antlr4::tree::TerminalNode *Divide();
-    antlr4::tree::TerminalNode *LessEqual();
-    antlr4::tree::TerminalNode *MoreEqual();
-    antlr4::tree::TerminalNode *Less();
-    antlr4::tree::TerminalNode *More();
-    antlr4::tree::TerminalNode *Equal();
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-   
-  };
-
-  BinarySignContext* binarySign();
-
   class  InBracesExpressionContext : public antlr4::ParserRuleContext {
   public:
     InBracesExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     InCurlyExpressionContext *inCurlyExpression();
     ColumnConstructorContext *columnConstructor();
+    TableConstructorContext *tableConstructor();
     InSquareExpressionContext *inSquareExpression();
     InParenExpressionContext *inParenExpression();
 
@@ -283,8 +292,6 @@ public:
     ColumnConstructorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *LParen();
-    antlr4::tree::TerminalNode *Comma();
-    TypeSpecifierContext *typeSpecifier();
     antlr4::tree::TerminalNode *RParen();
     antlr4::tree::TerminalNode *ID();
     antlr4::tree::TerminalNode *StringLiteral();
@@ -295,6 +302,38 @@ public:
   };
 
   ColumnConstructorContext* columnConstructor();
+
+  class  TableConstructorContext : public antlr4::ParserRuleContext {
+  public:
+    TableConstructorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *LSquare();
+    std::vector<IdColumnConstrContext *> idColumnConstr();
+    IdColumnConstrContext* idColumnConstr(size_t i);
+    antlr4::tree::TerminalNode *RSquare();
+    std::vector<antlr4::tree::TerminalNode *> Comma();
+    antlr4::tree::TerminalNode* Comma(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  TableConstructorContext* tableConstructor();
+
+  class  IdColumnConstrContext : public antlr4::ParserRuleContext {
+  public:
+    IdColumnConstrContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *ID();
+    ColumnConstructorContext *columnConstructor();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  IdColumnConstrContext* idColumnConstr();
 
   class  InCurlyExpressionContext : public antlr4::ParserRuleContext {
   public:

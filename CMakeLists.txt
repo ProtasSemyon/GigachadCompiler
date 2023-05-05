@@ -23,7 +23,7 @@ foreach(TYPE_SOURCE ${TYPE_SOURCES})
   add_custom_command(
     OUTPUT ${TYPE_BC_FILE}
     COMMAND mkdir -p ${IR_OUTPUT_DIR}
-    COMMAND clang++ -S -emit-llvm ${TYPE_SOURCE} -o ${TYPE_BC_FILE}
+    COMMAND clang -S -emit-llvm ${TYPE_SOURCE} -o ${TYPE_BC_FILE}
     DEPENDS ${TYPE_SOURCE}
   )
   list(APPEND TYPE_BC_FILES ${TYPE_BC_FILE})

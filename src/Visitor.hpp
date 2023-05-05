@@ -1,10 +1,16 @@
 #pragma once
 
 #include <llvm/IR/IRBuilder.h>
+#include <llvm/Support/SourceMgr.h>
+#include <llvm/IRReader/IRReader.h>
+
 #include <vector>
 #include <RelScriptParser.h>
+#include "Scope.hpp"
 
 using namespace llvm;
+
+const std::string TYPES_DEFINE = "/home/smn/BSUIR_6/YAPIS/GigachadCompiler/src/types/types.bc";
 
 class Visitor
 {
@@ -12,10 +18,35 @@ public:
 	std::unique_ptr<LLVMContext> llvm_context;
 	llvm::IRBuilder<> builder;
 	std::unique_ptr<Module> module;
+  llvm::SMDiagnostic err;
+  std::vector<Scope> scopes;
+
+  Scope &currentScope();
+
+  llvm::Value *getVariable(const std::string &name);
+
+  Type * tableTy;
+  Type * columnTy;
+  Type * rowTy;
 
 	Visitor() : llvm_context(std::make_unique<llvm::LLVMContext>()),
-							builder(*this->llvm_context),
-							module(std::make_unique<Module>("output", *this->llvm_context)) {}
+							builder(*this->llvm_context) {
+    module = parseIRFile(TYPES_DEFINE, err, *llvm_context);
+    module->setModuleIdentifier("output");
+
+    auto allSctructs = module->getIdentifiedStructTypes();
+    for (auto& t : allSctructs) {
+      if (t->getName() == "struct.Table") {
+        tableTy = t;
+      }
+      if (t->getName() == "struct.Column") {
+        columnTy = t;
+      }
+      if (t->getName() == "struct.Row") {
+        rowTy = t;
+      }
+    }
+  }
 
 	void fromFile(const std::string &path);
 
@@ -23,115 +54,57 @@ public:
 
   void visitStatements(const std::vector<RelScriptParser::StatementContext *> &statements);
 
-  void visitStatement(RelScriptParser::StatementContext *ctx) {
-    return ;
-  }
+  void visitStatement(RelScriptParser::StatementContext *ctx);
 
-  void visitMethodUsage(RelScriptParser::MethodUsageContext *ctx) {
-    return ;
-  }
+  void visitMethodUsage(RelScriptParser::MethodUsageContext *ctx);
 
-  void visitAssignExpression(RelScriptParser::AssignExpressionContext *ctx) {
-    return ;
-  }
+  void visitAssignExpression(RelScriptParser::AssignExpressionContext *ctx);
 
-  void visitNumber(RelScriptParser::NumberContext *ctx) {
-    return ;
-  }
+  void visitNumber(RelScriptParser::NumberContext *ctx);
 
-  void visitAtom(RelScriptParser::AtomContext *ctx) {
-    return ;
-  }
+  Value *visitAtom(RelScriptParser::AtomContext *ctx);
 
-  void visitExpression(RelScriptParser::ExpressionContext *ctx) {
-    return ;
-  }
+  Value *visitExpression(RelScriptParser::ExpressionContext *ctx);
 
-  void visitMulExpression(RelScriptParser::MulExpressionContext *ctx) {
-    return ;
-  }
+  Value *visitMulExpression(RelScriptParser::MulExpressionContext *ctx);
 
-  void visitLogicExpression(RelScriptParser::LogicExpressionContext *ctx) {
-    return ;
-  }
+  Value *visitLogicExpression(RelScriptParser::LogicExpressionContext *ctx);
 
-  void visitBinarySign(RelScriptParser::BinarySignContext *ctx) {
-    return ;
-  }
+  void visitInBracesExpression(RelScriptParser::InBracesExpressionContext *ctx);
 
-  void visitInBracesExpression(RelScriptParser::InBracesExpressionContext *ctx) {
-    return ;
-  }
+  void visitColumnConstructor(RelScriptParser::ColumnConstructorContext *ctx);
 
-  void visitColumnConstructor(RelScriptParser::ColumnConstructorContext *ctx) {
-    return ;
-  }
+  void visitInCurlyExpression(RelScriptParser::InCurlyExpressionContext *ctx);
 
-  void visitInCurlyExpression(RelScriptParser::InCurlyExpressionContext *ctx) {
-    return ;
-  }
+  void visitInSquareExpression(RelScriptParser::InSquareExpressionContext *ctx);
 
-  void visitInSquareExpression(RelScriptParser::InSquareExpressionContext *ctx) {
-    return ;
-  }
+  void visitInParenExpression(RelScriptParser::InParenExpressionContext *ctx);
 
-  void visitInParenExpression(RelScriptParser::InParenExpressionContext *ctx) {
-    return ;
-  }
+  void visitExpressionInsideBraces(RelScriptParser::ExpressionInsideBracesContext *ctx);
 
-  void visitExpressionInsideBraces(RelScriptParser::ExpressionInsideBracesContext *ctx) {
-    return ;
-  }
+  void visitFunctionDeclaration(RelScriptParser::FunctionDeclarationContext *ctx);
 
-  void visitFunctionDeclaration(RelScriptParser::FunctionDeclarationContext *ctx) {
-    return ;
-  }
+  void visitBlock(RelScriptParser::BlockContext *ctx);
 
-  void visitBlock(RelScriptParser::BlockContext *ctx) {
-    return ;
-  }
+  void visitReturnExpression(RelScriptParser::ReturnExpressionContext *ctx);
 
-  void visitReturnExpression(RelScriptParser::ReturnExpressionContext *ctx) {
-    return ;
-  }
+  void visitFunctionDeclarationBraces(RelScriptParser::FunctionDeclarationBracesContext *ctx);
 
-  void visitFunctionDeclarationBraces(RelScriptParser::FunctionDeclarationBracesContext *ctx) {
-    return ;
-  }
+  void visitFunctionDeclarationArgs(RelScriptParser::FunctionDeclarationArgsContext *ctx);
 
-  void visitFunctionDeclarationArgs(RelScriptParser::FunctionDeclarationArgsContext *ctx) {
-    return ;
-  }
+  void visitFunctionUsage(RelScriptParser::FunctionUsageContext *ctx);
 
-  void visitFunctionUsage(RelScriptParser::FunctionUsageContext *ctx) {
-    return ;
-  }
+  Type* visitTypeSpecifier(RelScriptParser::TypeSpecifierContext *ctx);
 
-  void visitTypeSpecifier(RelScriptParser::TypeSpecifierContext *ctx) {
-    return ;
-  }
+  void visitWhileStatement(RelScriptParser::WhileStatementContext *ctx);
 
-  void visitWhileStatement(RelScriptParser::WhileStatementContext *ctx) {
-    return ;
-  }
+  void visitForStatement(RelScriptParser::ForStatementContext *ctx);
 
-  void visitForStatement(RelScriptParser::ForStatementContext *ctx) {
-    return ;
-  }
+  void visitSwitchStatement(RelScriptParser::SwitchStatementContext *ctx);
 
-  void visitSwitchStatement(RelScriptParser::SwitchStatementContext *ctx) {
-    return ;
-  }
+  void visitCaseStatement(RelScriptParser::CaseStatementContext *ctx);
 
-  void visitCaseStatement(RelScriptParser::CaseStatementContext *ctx) {
-    return ;
-  }
+  void visitDefaultStatement(RelScriptParser::DefaultStatementContext *ctx);
 
-  void visitDefaultStatement(RelScriptParser::DefaultStatementContext *ctx) {
-    return ;
-  }
-
-  void visitIfStatement(RelScriptParser::IfStatementContext *ctx) {
-    return ;
-  }
+  void visitIfStatement(RelScriptParser::IfStatementContext *ctx);
 };
